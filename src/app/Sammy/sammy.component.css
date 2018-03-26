@@ -1,0 +1,58 @@
+@import url('https://www.w3schools.com/w3css/4/w3.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('../../assets/styles/style.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+div.avatar {
+  height: 150px;
+  overflow: hidden;
+  border-radius: 25px;
+}
+.hiddenList {
+  visibility: hidden;
+}
+div.w3-container.card-explanation {
+  background: lightgray;
+  opacity: 0.5;
+  border-radius: 25px;
+}
+
+a.component-card {
+  display: block;
+}
+
+img {
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.backgroundIMG1 {
+  position: relative;
+  width: auto;
+  height: auto;
+  top: -100px;
+  left: auto;
+}
+
+.backgroundIMG2 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: auto;
+  left: auto;
+}
+
+.foregroundIMG {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.card.guide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #487baa;
+}
