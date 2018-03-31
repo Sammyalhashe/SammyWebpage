@@ -5,7 +5,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BlogModule } from '../blog-module/blog-module.module';
 import { BlogComponent } from '../blog-module/blog.component';
-import { TimerService } from "./timer.service";
+import { TimerService } from './timer.service';
+import { DialogComponent } from '../../shared/Dialog/dialog.component';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -13,7 +16,9 @@ import { TimerService } from "./timer.service";
     CommonModule,
     RouterModule.forChild([
       { path: 'python', component: BlogComponent }
-    ])
+    ]),
+    FormsModule,
+    SharedModule
   ],
   declarations: [
     SammyComponent
@@ -21,8 +26,8 @@ import { TimerService } from "./timer.service";
   exports: [
     SammyComponent
   ],
-    providers: [
-        TimerService
-    ]
+  providers: [
+    TimerService
+  ]
 })
 export class SammyModule { }

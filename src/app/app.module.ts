@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { SammyComponent } from './Sammy/sammy.component';
 import { SammyResumeModule } from './sammy-resume/sammy-resume.module';
 import { BlogModule } from './blog-module/blog-module.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -19,18 +20,23 @@ import { BlogModule } from './blog-module/blog-module.module';
     BrowserAnimationsModule,
     BrowserModule,
     RouterModule.forRoot([
-        { path: 'home', component: SammyComponent, data: {
-            animation: 'homePage'
-        } },
-        { path: 'resume', component: ResumeComponent, data : {
-            animation: 'resumePage'
-        } },
-        { path: '', redirectTo: 'home', pathMatch: 'full'},
+      {
+        path: 'home', component: SammyComponent, data: {
+          animation: 'homePage'
+        }
+      },
+      {
+        path: 'resume', component: ResumeComponent, data: {
+          animation: 'resumePage'
+        }
+      },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: '/', pathMatch: 'full' }
     ]),
     SammyModule,
     SammyResumeModule,
-    BlogModule
+    BlogModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],

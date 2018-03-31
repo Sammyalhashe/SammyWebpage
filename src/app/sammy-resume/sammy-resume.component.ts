@@ -11,7 +11,7 @@ import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
             transition('* => *', [
                 query('.score', style({ width: 0 }, )),
                 query('.score', stagger('500ms', [
-                    animate('800ms 0.3s ease-out', style({ width: 289.1 }))
+                    animate('800ms 0.3s ease-out', style({ width: 70 + '%' }))
                 ]))
             ])
         ]),
@@ -19,7 +19,7 @@ import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
             transition('* => *', [
                 query('.score', style({ width: 0 }, )),
                 query('.score', stagger('500ms', [
-                    animate('800ms 0.3s ease-out', style({ width: 247.8 }))
+                    animate('800ms 0.3s ease-out', style({ width: 60 + '%' }))
                 ]))
             ])
         ]),
@@ -27,7 +27,7 @@ import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
             transition('* => *', [
                 query('.score', style({ width: 0 }, )),
                 query('.score', stagger('500ms', [
-                    animate('800ms 0.3s ease-out', style({ width: 165.2 }))
+                    animate('800ms 0.3s ease-out', style({ width: 40 + '%' }))
                 ]))
             ])
         ]),

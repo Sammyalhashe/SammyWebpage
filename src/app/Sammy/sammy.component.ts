@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { trigger, transition, state, style, animate, query, stagger, animateChild } from '@angular/animations';
+import { keyframes, trigger, transition, state, style, animate, query, stagger, animateChild, group } from '@angular/animations';
 import { IListItem } from '../../shared/listItems';
-import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
-import { TimerService } from "./timer.service";
+import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { TimerService } from './timer.service';
+import { ICarouselConfig, AnimationConfig } from 'angular4-carousel';
 
 @Component({
     templateUrl: './sammy.component.html',
@@ -36,6 +37,18 @@ import { TimerService } from "./timer.service";
             transition('JHovered => JnonHovered', [
                 animate('0.5s ease-in')
             ])
+        ]),
+        trigger('caroselAnimation', [
+            transition('* => *', [
+                group([
+                    query('img', [
+                        animate('1.0s ease-in', keyframes([
+                            style({ opacity: 0 }),
+                            style({ opacity: 1 })
+                        ]))
+                    ])
+                ])
+            ])
         ])
     ]
 })
@@ -47,9 +60,16 @@ export class SammyComponent implements OnInit {
     hoverState: string;
     bhoverState: boolean;
     name: string;
+    modalShow: boolean;
+    notReadyModalShow: boolean;
     items: IListItem[];
+    pictures: string[];
+    picNum = 1;
 
-    constructor(private _timer: TimerService ) {
+
+    constructor(private _timer: TimerService) {
+        this.modalShow = false;
+        this.notReadyModalShow = false;
         this.name = 'Sammy';
         this.hoverState = 'nonHovered';
         this.bhoverState = false;
@@ -57,6 +77,20 @@ export class SammyComponent implements OnInit {
         this.JbhoverState = false;
         this.items = this.emptyList();
         this.Jitems = this.JemptyList();
+        this.pictures = [
+            '../../assets/images/tennis.jpg',
+            '../../assets/images/Federer-Tweener.jpg'
+        ];
+
+        setInterval(() => {
+            if (this.picNum === this.pictures.length - 1) {
+                this.picNum = 0;
+            } else {
+                this.picNum++;
+            }
+            console.log(this.picNum);
+            console.log(this.pictures[this.picNum]);
+        }, 10000);
     }
 
     fillList(): IListItem[] {
@@ -132,5 +166,23 @@ export class SammyComponent implements OnInit {
             this.carosel();
         })
 
+    }
+
+    displayModal(modalID: string): void {
+
+        switch (modalID) {
+            case 'tennisModal': {
+                console.log('tennisModal');
+                this.modalShow = !this.modalShow;
+                console.log(this.modalShow);
+                break;
+            }
+            case 'notReady': {
+                console.log('notReadyModal');
+                this.notReadyModalShow = !this.notReadyModalShow;
+                console.log(this.notReadyModalShow);
+                break;
+            }
+        }
     }
 }
