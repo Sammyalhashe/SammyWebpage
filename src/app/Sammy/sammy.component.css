@@ -1,9 +1,9 @@
-@import url('https://www.w3schools.com/w3css/4/w3.css');
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import url('../../assets/styles/style.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("../../assets/styles/style.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 div.avatar {
   height: 150px;
   overflow: hidden;
@@ -59,10 +59,13 @@ img {
   background: #487baa;
 }
 
-
 img#tennisPic {
-  height: 35vh;
-  width: 100%;
-  border-radius: 15px; 
+  height: 50vh;
+  width: 40vw;
+  border-radius: 15px;
 }
 
+#guideTitle {
+  border-radius: 25px;
+  background: linear-gradient(45deg, rgb(84, 90, 96) 50%, teal 50%);
+}

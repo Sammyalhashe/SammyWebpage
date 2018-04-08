@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.SammyApp",
+  "appName": "SammyApp",
+  "bundledWebRuntime": false,
+  "webDir": "dist"
+}

@@ -1,0 +1,156 @@
+<br>
+<br>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('img/post-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1>Projects</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<article>
+  <div class="allProjects">
+    <!-- Charlie Project  -->
+    <div class="projectPanel">
+      <!-- Project Heading  -->
+      <div class="projectHeading">
+        <h2>
+          "Charlie", the Pipe Scanner
+        </h2>
+      </div>
+      <!-- Contains the Body + Pictures  -->
+      <div class="projectContainer">
+        <!-- Body Description of the project -->
+        <div class="projectBody col-lg-8 col-md-10 mx-auto">
+          <p>
+            Why we called the robot Charlie, I still don’t know. The name has no relationship with the project, the purpose of the Project,
+            or the time in-between when we were designing it. In fact, I only actually know one Charlie, and his name isn’t
+            actually Charlie (it’s a Chinese friend of mine who happens to go by Charlie). Regardless of the naming, I was
+            part of a group project in my second year of university where we built a robot capable of scanning a pipe for
+            “radioactive waste” (black dots) and count the occurrences. “Charlie” would then be entered in a competition
+            against other (obviously inferior, 😉) pipe scanning robots. The challenge of this project was to not only build
+            the robot, but to have it follow the following constraints:
+
+          </p>
+          <ol class="charlieList">
+            <li>Be able to scan dots located anywhere of the circumference of the pipe and at any location along the pipe’s length.</li>
+            <li>Not scratch the pipe, this would lead to an immediate disqualification from the competition. </li>
+            <li>Include an emergency stop button to halt Charlie in his place.</li>
+            <li>To record the number of instances of black dots and record their location relative to the pipe’s length.</li>
+          </ol>
+          <p>
+            I was the electromechanical member of this group. My responsibility was to communicate with the two other members in my group
+            (the circuits member and the programming member). We had team meetings twice a week to update on our individual
+            progress and collaborate on future plans. My role as the electromechanical member was to design the structural
+            framework of the robot and deal with placing any motors and design circuitry on the skeleton. I had major roles
+            in all four requirements above.
+          </p>
+
+          <p>
+            For requirement one, it was my responsibility to design the skeleton of the robot such that it had access to the entire circumference
+            of the pipe for scanning the black dots. I collaborated with my team and people external to my team for ideas
+            on how to approach this. I created many sketches detailing my ideas (albeit, not the greatest sketches) to present
+            to my team, and we eventually settled on a “U-shaped” arm that extends from the robot. We investigated the capabilities
+            of the infrared sensors that would scan the pipe for black dots and discovered that they were easily powerful
+            enough to detect change from far distances. Because of this, we decided that, for convenience sake, this arm
+            didn’t need to fully wrap around the pipe but could leave the bottom uncovered. For requirement two, although
+            we later implemented an ultrasonic sensor to help reposition the robot if it ever became too close or too far
+            from the robot, it was my responsibility to make the robot go as straight as possible. This involved re-placing
+            the wheels many times, but eventually I got it to go straight enough such that the ultrasonic sensor could take
+            over the rest. Requirement three was very simple to complete. All this required was for me to place a red button
+            as close as possible to the motherboard and let the circuit’s member handle the rest. For the fourth requirement,
+            we came up with a simple, yet pretty cool quick solution. I measured the diameter of the wheels we used. Next,
+            I cut up a circular piece of paper to the same diameter as measured. I then coloured the piece of paper in a
+            pattern of black and white slices, effectively creating a pedometer when used with an infrared sensor and placed
+            on the inside of the wheel.
+          </p>
+        </div>
+
+        <div>
+          <img class="projectImage" src="../../assets/images/Federer-Tweener.jpg" alt="Picture">
+        </div>
+      </div>
+      <br>
+      <br>
+
+    </div>
+    <!-- Finder Thingy Project  -->
+    <div class="projectPanel">
+      <!-- Project Heading  -->
+      <div class="projectHeading">
+        <h2>
+          "Finder Thingy"
+        </h2>
+      </div>
+      <!-- Contains the Body + Pictures  -->
+      <div class="projectContainer">
+        <!-- Body Description of the project -->
+        <div class="projectBody col-lg-8 col-md-10 mx-auto">
+          <p>
+            Early in the summer of 2017, I first ‘dipped my toes’ into the world of software by taking an object-oriented design course.
+            I did this because I asked my friend from school what would be a good skill to have and he recommended me to
+            object-oriented programming. This course didn’t introduce any traditional “coding-skills”, but it did introduce
+            me to the important foundations used in most software projects used in today’s industry. This interested me,
+            so I decided to go farther and apply these principles to actual projects. However, I wasn’t very adept at any
+            programming languages. I had a MacBook pro at the time, so I decided to try out iOS development in swift by taking
+            a course taught by the same individual. This course taught me the basics such as tableviews, delegation, segues,
+            and networking using tools such as Alamofire. This course also taught me Swift3.
+          </p>
+
+          <p>
+            Using the introductory skills taught in this course, I decided to try some of them out on a silly app I decided to call “Finder
+            Thingy”. The idea behind this app was to have a personalized list of destinations that I like, and wherever I
+            am, I could take out the app and look up the closest location. I used Alamofire to access the Google Maps/Places
+            API (with an API key registered in my AppDelegate file) and de-structured the returned JSON to supply the user
+            with direction information. This was an introductory app that really wasn’t that great at all, but I’m proud
+            of the fact that it was my first.
+          </p>
+        </div>
+
+        <div>
+          <img class="projectImage" src="../../assets/images/Federer-Tweener.jpg" alt="Picture">
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
+    <!-- Website Project  -->
+    <div class="projectPanel">
+      <!-- Project Heading  -->
+      <div class="projectHeading">
+        <h2>
+          This Website
+        </h2>
+      </div>
+      <!-- Contains the Body + Pictures  -->
+      <div class="projectContainer">
+        <!-- Body Description of the project -->
+        <div class="projectBody col-lg-8 col-md-10 mx-auto">
+          <p>
+            I won't dive too deeply into the details of this website because, well, you're already on it (haha), but I will talk about
+            it's development. This website is a single-page application written in an angular4 frontend. It consists of a
+            main page with a navigation bar defined in the index.html file. Underneath the navigation bar is a router directive
+            for which Angular places all of the applications routed-components. These routed-components include the home
+            page that introduces me, a resume page, a projects page, and a separate blog page. I toyed with many of Agular’s
+            features, some of, my favorites being the animations and routing animations. I followed the material design guidelines
+            to help create a modern-looking website and am always looking for suggestions on how to improve it as this is
+            my first website. I decided on the brighter colour-scheme because I think it matches well with my favorite outdoor
+            sport tennis.
+          </p>
+
+        </div>
+
+        <div>
+          <img class="projectImage" src="../../assets/images/Federer-Tweener.jpg" alt="Picture">
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SammyApp</string>
+    <string name="title_activity_main">SammyApp</string>
+    <string name="package_name">com.example.SammyApp</string>
+    <string name="fileprovider_authority">com.example.SammyApp.fileprovider</string>
+    <string name="custom_url_scheme">com.example.SammyApp</string>
+</resources>
