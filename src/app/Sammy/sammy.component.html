@@ -57,7 +57,7 @@
               <p>
                 Learn Some Cool Python Stuff
               </p>
-              <ng-container *ngIf='this.bhoverState'>
+              <ng-container *ngIf='this.hoverState === "Hovered"'>
                 <ul>
                   <!--[@listAnimation]="this.items.length "-->
                   <li *ngFor='let item of this.items'>
@@ -80,7 +80,7 @@
               <p>
                 QM for life
               </p>
-              <ng-container *ngIf='this.JbhoverState'>
+              <ng-container *ngIf='this.JhoverState === "JHovered"'>
                 <ul>
                   <!--[@listAnimation]="this.items.length "-->
                   <li *ngFor='let item of this.Jitems'>

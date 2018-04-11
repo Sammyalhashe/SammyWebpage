@@ -1,3 +1,4 @@
+import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SammyComponent } from "./sammy.component";
 import { NgModule } from "@angular/core";
@@ -9,9 +10,11 @@ import { TimerService } from "./timer.service";
 import { DialogComponent } from "../../shared/Dialog/dialog.component";
 import { FormsModule } from "@angular/forms";
 import { SharedModule } from "../../shared/shared.module";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   imports: [
+    BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
     RouterModule.forChild([
@@ -22,7 +25,8 @@ import { SharedModule } from "../../shared/shared.module";
       { path: "linAlg", component: BlogComponent }
     ]),
     FormsModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   declarations: [SammyComponent],
   exports: [SammyComponent],

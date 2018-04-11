@@ -1,3 +1,4 @@
+import { IpicsItem } from "./../../shared/IpicsItem";
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import {
@@ -80,6 +81,9 @@ export class SammyComponent implements OnInit {
   items: IListItem[];
   pictures: string[];
   picNum = 1;
+  errorMessage: string;
+  JerrorMessage: string;
+  picserrorMessage: string;
 
   constructor(private _timer: TimerService) {
     // initialize class props
@@ -87,11 +91,7 @@ export class SammyComponent implements OnInit {
     this.notReadyModalShow = false;
     this.name = "Sammy";
     this.hoverState = "nonHovered";
-    this.bhoverState = false;
     this.JhoverState = "JnonHovered";
-    this.JbhoverState = false;
-    this.items = this.emptyList();
-    this.Jitems = this.JemptyList();
     this.pictures = [
       "../../assets/images/tennis.jpg",
       "../../assets/images/Federer-Tweener.jpg",
@@ -143,9 +143,11 @@ export class SammyComponent implements OnInit {
   }
 
   // returns a promise to be used by async function togglePython (and the QC equivalent)
+  /*
   delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
+  */
 
   /*
     Toggles if the Python state is hovered over or not by updating three
@@ -154,36 +156,21 @@ export class SammyComponent implements OnInit {
       2) a hover state bool
       3) the list being filled or not
   */
-  async togglePython() {
+  togglePython() {
     if (this.hoverState === "Hovered") {
-      this.items = this.emptyList();
-      this.bhoverState = true;
       this.hoverState = "nonHovered";
     } else if (this.hoverState === "nonHovered") {
       this.hoverState = "Hovered";
-      await this.delay(500);
-      this.items = this.fillList();
-      this.bhoverState = this.hoverState === "nonHovered" ? false : true;
     }
   }
 
   /* same thing as above */
-  async toggleJava() {
+  toggleJava() {
     if (this.JhoverState === "JHovered") {
-      this.Jitems = this.JemptyList();
-      this.JbhoverState = true;
       this.JhoverState = "JnonHovered";
     } else if (this.JhoverState === "JnonHovered") {
       this.JhoverState = "JHovered";
-      await this.delay(500);
-      this.Jitems = this.JfillList();
-      this.JbhoverState = this.JhoverState === "JnonHovered" ? false : true;
     }
-  }
-
-  carosel() {
-    // stuff
-    console.log("CAROSEL");
   }
 
   ngOnInit() {
@@ -191,10 +178,21 @@ export class SammyComponent implements OnInit {
       "navigation-bar"
     ) as HTMLElement;
     this.navigationBar.style.display = "block";
-    // attempting to use service I created earlier => try to update the carosel to use the service
-    this._timer.createTimer().subscribe(x => {
-      this.carosel();
-    });
+
+    // subscribing to the service timer.service
+    this._timer
+      .getPythonLinks()
+      .subscribe(
+        links => (this.items = links),
+        err => (this.errorMessage = err as any)
+      );
+
+    this._timer
+      .getQcLinks()
+      .subscribe(
+        links => (this.Jitems = links),
+        err => (this.JerrorMessage = err as any)
+      );
   }
 
   displayModal(modalID: string): void {
