@@ -69,3 +69,23 @@ img#tennisPic {
   border-radius: 25px;
   background: linear-gradient(45deg, rgb(84, 90, 96) 50%, teal 50%);
 }
+
+@media screen and (min-width: 0px) and (max-width: 960px) {
+  #tennisPics {
+    display: none;
+  }
+
+  #aboutText {
+    font-size: 0.5vw;
+  }
+}
+
+@media screen and (min-width: 961px) and (max-width: 1024px) {
+  #tennisPics {
+    display: block;
+  }
+
+  #aboutText {
+    font-size: 2vw;
+  }
+}

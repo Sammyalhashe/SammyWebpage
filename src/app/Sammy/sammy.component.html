@@ -5,10 +5,10 @@
     <div class="w3-col m6 w3-padding-large w3-hide-small">
       <img src="..\assets\images\sanFran.jpg" class="w3-round w3-image w3-right w3-opacity-min" alt="Sammy" width="600" height="750">
     </div>
-    <div class="w3-col m6 w3-padding-large">
+    <div class="w3-col m6 w3-padding-large" id="aboutBlock">
       <h1 class="w3-center">About Sammy</h1>
       <br>
-      <blockquote class="w3-large flow-text">
+      <blockquote class="w3-large flow-text aboutText">
         Hello visitor! My name is Sammy Al Hashemi. I love tennis and tech! I'm currently enrolled in Engineering Science at the
         University of Toronto and I'm due to graduate in May of 2019. In the menu above, you can find links to my resume
         and my contact information. In addition, you can also find projects I've worked on. By clicking the two photos below,
@@ -21,7 +21,7 @@
   <!-- Header -->
   <div class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
     <!-- ///////////////////////////////// Tennis /////////////////////////////////////////////////////////////// -->
-    <div class="w3-half">
+    <div class="w3-half" id="tennisPics">
       <a (click)="displayModal('tennisModal')" style="height: 100%" [@caroselAnimation]="this.picNum">
         <img class=" w3-image w3-hover-opacity responsive-img " src="{{this.pictures[this.picNum]}} " alt="Tennis" id="tennisPic">
       </a>
