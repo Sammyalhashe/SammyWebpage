@@ -14,11 +14,11 @@ import {
   group
 } from "@angular/animations";
 import { IListItem } from "../../shared/listItems";
-import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
+import { OnInit, OnDestroy } from "@angular/core/src/metadata/lifecycle_hooks";
 import { TimerService } from "./timer.service";
 
 @Component({
-  templateUrl: "./sammy.component.html",
+  templateUrl: "./secondary.html",
   styleUrls: ["./sammy.component.css"],
   animations: [
     trigger("hoverOverTransition", [
@@ -67,7 +67,7 @@ import { TimerService } from "./timer.service";
     ])
   ]
 })
-export class SammyComponent implements OnInit {
+export class SammyComponent implements OnInit, OnDestroy {
   // class properties
   navigationBar: HTMLElement;
   Jitems: IListItem[];
@@ -174,6 +174,8 @@ export class SammyComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.addEventListener("scroll", this.scroll, true);
+
     this.navigationBar = document.getElementById(
       "navigation-bar"
     ) as HTMLElement;
@@ -193,6 +195,14 @@ export class SammyComponent implements OnInit {
         links => (this.Jitems = links),
         err => (this.JerrorMessage = err as any)
       );
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener("scroll", this.scroll, true);
+  }
+
+  scroll(): void {
+    console.log("SCROLLED");
   }
 
   displayModal(modalID: string): void {

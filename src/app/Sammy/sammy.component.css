@@ -7,7 +7,8 @@
 div.avatar {
   height: 150px;
   overflow: hidden;
-  border-radius: 25px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 .hiddenList {
   visibility: hidden;
@@ -15,7 +16,8 @@ div.avatar {
 div.w3-container.card-explanation {
   background: lightgray;
   opacity: 0.5;
-  border-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
   height: auto;
   overflow: hidden;
 }
@@ -70,7 +72,7 @@ img#tennisPic {
   background: linear-gradient(45deg, rgb(84, 90, 96) 50%, teal 50%);
 }
 
-@media screen and (min-width: 0px) and (max-width: 960px) {
+@media only screen and (min-width: 0px) and (max-width: 960px) {
   #tennisPics {
     display: none;
   }
@@ -78,9 +80,13 @@ img#tennisPic {
   #aboutText {
     font-size: 0.5vw;
   }
+
+  .guideBlock {
+    display: none;
+  }
 }
 
-@media screen and (min-width: 961px) and (max-width: 1024px) {
+@media only screen and (min-width: 961px) and (max-width: 1024px) {
   #tennisPics {
     display: block;
   }
@@ -88,4 +94,23 @@ img#tennisPic {
   #aboutText {
     font-size: 2vw;
   }
+
+  .guideBlock {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .guideBlock {
+    display: none;
+  }
+}
+
+.blockExplanation {
+  border: 2px;
+  border-style: dashed;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-color: black;
+  height: max-content;
 }

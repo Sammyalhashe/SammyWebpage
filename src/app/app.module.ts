@@ -12,11 +12,13 @@ import { BlogModule } from "./blog-module/blog-module.module";
 import { SharedModule } from "../shared/shared.module";
 import { ProjectsModule } from "./projects/projects.module";
 import { ProjectsComponent } from "./projects/projects.component";
+import { AngularMaterialModule } from "./angularMaterialconfig";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserAnimationsModule,
+    AngularMaterialModule,
     BrowserModule,
     RouterModule.forRoot([
       {

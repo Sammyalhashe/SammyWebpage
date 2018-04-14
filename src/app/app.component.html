@@ -1,45 +1,54 @@
 <!--Navbar (sit on top) -->
-<div class="w3-top ">
-    <div class="w3-bar w3-black w3-padding w3-card teal lighten-2" id="navigation-bar" style="letter-spacing:4px;">
-        <a [routerLink]="['/home']" class="w3-bar-item w3-button">Sammy Al Hashemi</a>
 
-        <!--[> Right-sided navbar links. Hide them on small screens <]-->
+<div class="w3-top largeNav">
+    <div class="w3-bar w3-black w3-padding w3-card teal lighten-2" id="navigation-bar" style="letter-spacing:4px;">
+        <button [routerLink]="['/home']" class="w3-bar-item w3-button">Sammy Al Hashemi</button>
+
         <div class="w3-right w3-hide-small">
-            <a [routerLink]="['/resume']" class="w3-bar-item w3-button">Resume</a>
-            <a [routerLink]="['/projects']" class="w3-bar-item w3-button">Projects</a>
-            <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+            <button [routerLink]=" [ '/resume'] " class="w3-bar-item w3-button ">Resume</button>
+            <button [routerLink]="[ '/projects'] " class="w3-bar-item w3-button ">Projects</button>
+            <button href="#contact " class="w3-bar-item w3-button ">Contact</button>
         </div>
     </div>
 </div>
 
-<!--<div class="w3-top">-->
-<!--<nav class="nav-extended">-->
-<!--<a [routerLink]="['/home']" class="w3-bar-item w3-button">Sammy Al Hashemi</a>-->
-<!--<div class="nav-wrapper w3-padding w3-card teal lighten-2" id="navigation-bar" style="letter-spacing:4px;">-->
-<!--<div class="nav-content">-->
-<!--<ul class="tabs tabs-transparent">-->
-<!--<li class="tab">-->
-<!--<a [routerLink]="[ '/resume']" class="w3-bar-item w3-button">Resume</a>-->
-<!--</li>-->
-<!--<li class="tab">-->
-<!--<a [routerLink]="[ '/projects']" class="w3-bar-item w3-button">Projects</a>-->
-<!--</li>-->
-<!--<li class="tab">-->
-<!--<a href="#contact" class="w3-bar-item w3-button">Contact</a>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--[><a [routerLink]="['/home']" class="w3-bar-item w3-button">Sammy Al Hashemi</a><]-->
+<div class="w3-top medNav">
+    <div class="w3-bar w3-black w3-padding w3-card teal lighten-2" id="navigation-bar" style="letter-spacing:4px;">
+        <button [routerLink]="['/home']" class="w3-bar-item w3-button">Sammy Al Hashemi</button>
+        <div class="w3-right w3-hide-small">
+            <button [matMenuTriggerFor]="menu" class="w3-bar-item w3-button ">
+                Guides
+            </button>
+            <button [routerLink]=" [ '/resume'] " class="w3-bar-item w3-button ">Resume</button>
+            <button [routerLink]="[ '/projects'] " class="w3-bar-item w3-button ">Projects</button>
+            <button href="#contact " class="w3-bar-item w3-button ">Contact</button>
+        </div>
+    </div>
+</div>
 
-<!--[> Right-sided navbar links. Hide them on small screens <]-->
-<!--[>    <div class="w3-right w3-hide-small"><]-->
-<!--[><a [routerLink]="[ '/resume']" class="w3-bar-item w3-button">Resume</a><]-->
-<!--[><a [routerLink]="[ '/projects']" class="w3-bar-item w3-button">Projects</a><]-->
-<!--[><a href="#contact" class="w3-bar-item w3-button">Contact</a><]-->
-<!--[></div><]-->
-<!--</div>-->
-<!--</nav>-->
-<!--</div>-->
+
+<div class="w3-top smallNav">
+    <div class="w3-bar w3-black w3-padding w3-card teal lighten-2" id="navigation-bar" style="letter-spacing:4px;">
+        <button [routerLink]="['/home']" class="w3-bar-item w3-button">
+            <mat-icon>home</mat-icon>
+        </button>
+        <div class="w3-right" id="buttonsHolder">
+            <button [matMenuTriggerFor]="menu" class="w3-bar-item w3-button ">
+                Guides
+            </button>
+        </div>
+        <div class="w3-right" id="buttonsHolderSmall">
+            <button [matMenuTriggerFor]="menu" class="w3-bar-item w3-button">
+                <mat-icon>list</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
+<mat-menu [overlapTrigger]="false" #menu="matMenu">
+    <button mat-menu-item [routerLink]=" [ '/resume'] ">Resume</button>
+    <button mat-menu-item [routerLink]="[ '/projects'] ">Projects</button>
+</mat-menu>
+
 
 <div [@routeAnimation]='prepRouteState(routerOutlet)'>
     <router-outlet #routerOutlet="outlet"></router-outlet>
