@@ -233,7 +233,7 @@ p {
   }
 }
 
-@media only screen and (min-width: 961px) {
+@media only screen and (min-width: 961px) and (max-width: 1024px) {
   .largeNav {
     display: block;
   }
@@ -244,5 +244,33 @@ p {
 
   .medNav {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1699px) {
+  .largeNav {
+    display: block;
+  }
+
+  .smallNav {
+    display: none;
+  }
+
+  .medNav {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .largeNav {
+    display: none;
+  }
+
+  .smallNav {
+    display: none;
+  }
+
+  .medNav {
+    display: block;
   }
 }

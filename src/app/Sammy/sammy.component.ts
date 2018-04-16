@@ -17,6 +17,8 @@ import { IListItem } from "../../shared/listItems";
 import { OnInit, OnDestroy } from "@angular/core/src/metadata/lifecycle_hooks";
 import { TimerService } from "./timer.service";
 
+// import * as Typed from "typed.js"; // I used this for practice in using a JS library. I also used the Angular equivalent to type my name
+
 @Component({
   templateUrl: "./secondary.html",
   styleUrls: ["./sammy.component.css"],
@@ -195,6 +197,14 @@ export class SammyComponent implements OnInit, OnDestroy {
         links => (this.Jitems = links),
         err => (this.JerrorMessage = err as any)
       );
+    // let typed: any = new Typed(".typed", {
+    //   strings: ["Tennis Addict", "Developer"],
+    //   typeSpeed: 25,
+    //   backSpeed: 25,
+    //   fadeOut: false,
+    //   loop: true
+    // });
+    setTimeout(() => {}, 1000);
   }
 
   ngOnDestroy(): void {
@@ -218,5 +228,9 @@ export class SammyComponent implements OnInit, OnDestroy {
         break;
       }
     }
+  }
+
+  onTypingComplete(): void {
+    console.log("TYPED!!");
   }
 }

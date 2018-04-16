@@ -59,11 +59,22 @@
   }
 </style>
 <!-- First Container -->
-<div class="container-fluid bg-1 text-center">
-  <h1 class="margin">Sammy Al Hashemi</h1>
-  <img src="..\assets\images\sanFran.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350"
-    height="350">
+<div class="container-fluid bg-1 text-center mainContainer" id="mainContainer">
+  <h1 class="margin SammyNameLarge">
+    <span typingAnimation [typeSpeed]="25" [startDelay]="1000" (complete)='this.onTypingComplete()'>Sammy Al Hashemi</span>
+    <br>
+    <span class="typed"></span>
+  </h1>
+  <h1 class="margin SammyNameSmall">
+    <span typingAnimation [typeSpeed]="25" [startDelay]="1000" (complete)='this.onTypingComplete()'>Sammy</span>
+  </h1>
+
+
+
+  <img src="..\assets\images\sanFran.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Picture of Me"
+    width="350" height="350">
 </div>
+
 
 <!-- Second Container -->
 <div class="container-fluid bg-2 text-center">
@@ -125,12 +136,31 @@
       </a>
     </div>
     <div class="col-md-4 col-sm-4 col-lg-8 blockExplanation">
-      <p>
-        PYTHON
-      </p>
+      <blockquote>
+        I am going into my fourth year of Engineering Science at UofT. My thesis project is to write scalable versions of Shore's
+        and Grovers Quantum algorithms. Because teaching is the best way to learn, I've decided to write guides/blogs on
+        various ways I've gotten ready to do this. Python is a big part of Quantum Algorithms as a majority of the Quantum
+        SDK's (IMBQ and Rigetti Forest) make use of Python. Obviously, I also needed to have a solid grounding in QM. This
+        is why I chose these two sections.
+      </blockquote>
     </div>
   </div>
+  <hr>
 </div>
+
+<!-- Contact Section -->
+<div class="container-fluid bg-3 text-center" id="contact">
+  <h1>Contact Information</h1>
+  <br>
+  <p>Feel free to contact me via email:
+    <a href="mailto:sammy.alhashemi@mail.utoronto.ca ">sammy.alhashemi@mail.utoronto.ca</a>
+  </p>
+  <p>You can also contact me by phone
+    <a href="tel:408-908-9512 ">408-908-9512</a>
+  </p>
+</div>
+<!-- End page content -->
+
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-32 ">
   <p>Find me on social media.</p>
@@ -149,4 +179,6 @@
   <a href="https://github.com/Sammyalhashe " title="GitHub " style="text-decoration: none ">
     <i class="fa fa-github w3-hover-opacity "></i>
   </a>
+  <hr>
+  <button type="button" class="btn btn-primary" [ngx-scroll-to]="'#top'" [ngx-scroll-to-duration]="1500">Back to Top</button>
 </footer>

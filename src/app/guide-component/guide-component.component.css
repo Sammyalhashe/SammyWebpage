@@ -1,0 +1,15 @@
+.ulLinks {
+  background: teal;
+  padding: 10px;
+  margin: 2px;
+  color: black;
+  border: 0.1rem;
+  border-style: ridge;
+  border-color: black;
+  font-family: cursive;
+}
+
+.listEncapsulator {
+  width: 60%;
+  margin: 0 auto;
+}

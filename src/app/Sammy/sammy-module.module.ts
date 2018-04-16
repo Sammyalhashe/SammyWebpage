@@ -11,12 +11,15 @@ import { DialogComponent } from "../../shared/Dialog/dialog.component";
 import { FormsModule } from "@angular/forms";
 import { SharedModule } from "../../shared/shared.module";
 import { HttpClientModule } from "@angular/common/http";
+import { TypingAnimationDirective } from "angular-typing-animation";
+import { ScrollToModule } from "@nicky-lenaers/ngx-scroll-to";
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
+    ScrollToModule.forRoot(),
     RouterModule.forChild([
       { path: "abc", component: BlogComponent },
       { path: "multipleInheritance", component: BlogComponent },
@@ -28,7 +31,7 @@ import { HttpClientModule } from "@angular/common/http";
     SharedModule,
     HttpClientModule
   ],
-  declarations: [SammyComponent],
+  declarations: [SammyComponent, TypingAnimationDirective],
   exports: [SammyComponent],
   providers: [TimerService]
 })

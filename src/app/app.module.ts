@@ -12,7 +12,10 @@ import { BlogModule } from "./blog-module/blog-module.module";
 import { SharedModule } from "../shared/shared.module";
 import { ProjectsModule } from "./projects/projects.module";
 import { ProjectsComponent } from "./projects/projects.component";
+import { GuideModuleModule } from "./guide-module/guide-module.module";
+import { GuideComponentComponent } from "./guide-component/guide-component.component";
 import { AngularMaterialModule } from "./angularMaterialconfig";
+import { ScrollToModule } from "@nicky-lenaers/ngx-scroll-to";
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +23,7 @@ import { AngularMaterialModule } from "./angularMaterialconfig";
     BrowserAnimationsModule,
     AngularMaterialModule,
     BrowserModule,
+    ScrollToModule.forRoot(),
     RouterModule.forRoot([
       {
         path: "home",
@@ -36,6 +40,10 @@ import { AngularMaterialModule } from "./angularMaterialconfig";
         }
       },
       {
+        path: "guides",
+        component: GuideComponentComponent
+      },
+      {
         path: "projects",
         component: ProjectsComponent
       },
@@ -46,7 +54,8 @@ import { AngularMaterialModule } from "./angularMaterialconfig";
     SammyResumeModule,
     BlogModule,
     SharedModule,
-    ProjectsModule
+    ProjectsModule,
+    GuideModuleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
