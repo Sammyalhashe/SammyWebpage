@@ -1,13 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BlogComponent } from './blog.component';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { BlogComponent } from "./blog.component";
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [
-    BlogComponent
-  ]
+  imports: [CommonModule],
+  declarations: [BlogComponent]
 })
-export class BlogModule { }
+export class BlogModule {}

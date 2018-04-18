@@ -40,10 +40,10 @@ import {
                     style({ opacity: 0.2, transform: "translateX(100%)" }),
                     style({ opacity: 1, transform: "translateX(0%)" })
                   ])
-                ),
-                query("@loadanimation", [animateChild()], { optional: true }),
-                query("@loadanimation1", [animateChild()], { optional: true }),
-                query("@loadanimation2", [animateChild()], { optional: true })
+                )
+                // query("@loadanimation", [animateChild()], { optional: true }),
+                // query("@loadanimation1", [animateChild()], { optional: true }),
+                // query("@loadanimation2", [animateChild()], { optional: true })
               ])
             ),
             query(

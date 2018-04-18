@@ -6,7 +6,8 @@ import {
   animate,
   query,
   style,
-  stagger
+  stagger,
+  group
 } from "@angular/animations";
 import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
 
@@ -44,6 +45,20 @@ import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
           stagger("500ms", [
             animate("800ms 0.3s ease-out", style({ width: 40 + "%" }))
           ])
+        )
+      ])
+    ]),
+    trigger("loadanimation3", [
+      transition("* => *", [
+        query(
+          ".skillsLogo",
+          [
+            animate(
+              "800ms 0.3s ease-out",
+              style({ transform: "rotate(360deg)" })
+            )
+          ],
+          { optional: true }
         )
       ])
     ])

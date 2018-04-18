@@ -29,9 +29,11 @@
             <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>(408)-908-9512</p>
           <!-- A Literal Line division inserted -->
           <hr>
-          <p class="w3-large">
+          <p class="w3-large" [@loadanimation3]="this.toggleState">
             <b>
-              <i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b>
+              <i class="skillsLogo fa fa-asterisk fa-fw w3-margin-right w3-text-teal "></i>
+              Skills
+            </b>
           </p>
           <button (click)="this.toggler()">ANIMATE</button>
           <p>Python</p>
@@ -161,7 +163,7 @@
             <br>
             <ul class="w3-ul">
               <li>
-                <i class="material-icons" style="color:black; size: 16px">navigate_next</i>&emsp;&emsp;&emsp;&emsp;
+                <i class="material-icons" style="color:black; size: 16px">navigate_next</i>&emsp;
                 <a href="https://www.coursera.org/learn/machine-learning/" title="ML">Machine Learning, Andrew Ng</a>
               </li>
             </ul>

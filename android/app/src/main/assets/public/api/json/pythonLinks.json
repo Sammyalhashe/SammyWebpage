@@ -1,0 +1,5 @@
+[
+  { "Description": "Abstract Base Class in Python", "Link": "abc" },
+  { "Description": "Multiple Inheritance", "Link": "multipleInheritance" },
+  { "Description": "Parsing JSON with Python", "Link": "parseJson" }
+]
