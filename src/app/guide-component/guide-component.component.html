@@ -85,7 +85,7 @@
     <div class="listEncapsulator">
       <ul class="list-group">
         <li *ngFor='let item of this.items' class="listEl">
-          <a [routerLink]="['/',item.Link]" class="list-group-item ulLinks">{{ item.Description }}</a>
+          <a [routerLink]="['/guides',item.Link]" [ngx-scroll-to]="'#top'" class="list-group-item ulLinks">{{ item.Description }}</a>
         </li>
       </ul>
     </div>
@@ -103,7 +103,7 @@
     <div class="listEncapsulator">
       <ul class="list-group">
         <li *ngFor='let item of this.Jitems' class="listEl">
-          <a [routerLink]="['/',item.Link]" class="list-group-item ulLinks">{{ item.Description }}</a>
+          <a [routerLink]="['/guides',item.Link]" [ngx-scroll-to]="'#top'" class="list-group-item ulLinks">{{ item.Description }}</a>
         </li>
       </ul>
     </div>

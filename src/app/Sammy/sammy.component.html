@@ -61,7 +61,7 @@
                 <ul>
                   <!--[@listAnimation]="this.items.length "-->
                   <li *ngFor='let item of this.items'>
-                    <a [routerLink]="[ '/',item.Link] ">{{ item.Description }}</a>
+                    <a [routerLink]="[ '/guides',item.Link,'test'] ">{{ item.Description }}</a>
                     <!-- href='{{item.Link}}' -->
                   </li>
                 </ul>
@@ -84,7 +84,7 @@
                 <ul>
                   <!--[@listAnimation]="this.items.length "-->
                   <li *ngFor='let item of this.Jitems'>
-                    <a href='{{item.Link}}'>{{ item.Description }}</a>
+                    <a [routerLink]="['/guides',item.Link]">{{ item.Description }}</a>
                   </li>
                 </ul>
               </ng-container>

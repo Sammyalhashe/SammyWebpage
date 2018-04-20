@@ -106,7 +106,7 @@
             <ul>
               <!--[@listAnimation]="this.items.length "-->
               <li *ngFor='let item of this.items'>
-                <a [routerLink]="[ '/',item.Link] ">{{ item.Description }}</a>
+                <a [routerLink]="[ '/guides',item.Link] ">{{ item.Description }}</a>
                 <!-- href='{{item.Link}}' -->
               </li>
             </ul>
@@ -115,7 +115,7 @@
       </div>
     </div>
     <div class="col-md-4 col-sm-4 col-lg-2">
-      <a (mouseenter)="toggleJava() " (mouseleave)="toggleJava() " class="component-card">
+      <div (mouseenter)="toggleJava() " (mouseleave)="toggleJava() " class="component-card">
         <div class="w3-card avatar ">
           <img src="..\assets\images\java.jpg " class="backgroundIMG2 ">
         </div>
@@ -124,16 +124,16 @@
           <p>
             QM for life
           </p>
-          <ng-container *ngIf='this.JhoverState === "JHovered"'>
+          <ng-container *ngIf='this.JhoverState === "JHovered"' [@listAnimation]>
             <ul>
               <!--[@listAnimation]="this.items.length "-->
               <li *ngFor='let item of this.Jitems'>
-                <a href='{{item.Link}}'>{{ item.Description }}</a>
+                <a [routerLink]="[ '/guides',item.Link]">{{ item.Description }}</a>
               </li>
             </ul>
           </ng-container>
         </div>
-      </a>
+      </div>
     </div>
     <div class="col-md-4 col-sm-4 col-lg-8 blockExplanation">
       <blockquote>

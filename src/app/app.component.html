@@ -2,26 +2,26 @@
 <div id="top">
     <div class="w3-top largeNav">
         <div class="w3-bar w3-black w3-padding w3-card teal lighten-2" id="navigation-bar" style="letter-spacing:4px;">
-            <button [routerLink]="['/home']" class="w3-bar-item w3-button">Sammy Al Hashemi</button>
+            <button [routerLink]="['/home']" [ngx-scroll-to]="'#top'" class="w3-bar-item w3-button">Sammy Al Hashemi</button>
 
             <div class="w3-right w3-hide-small">
                 <button [routerLink]=" [ '/resume'] " class="w3-bar-item w3-button ">Resume</button>
-                <button [routerLink]="[ '/projects'] " class="w3-bar-item w3-button ">Projects</button>
-                <button [ngx-scroll-to]="'#contact'" [ngx-scroll-to-duration]="1500" class="w3-bar-item w3-button ">Contact</button>
+                <button [routerLink]="[ '/projects']" class="w3-bar-item w3-button ">Projects</button>
+                <button [routerLink]="['/home']" [ngx-scroll-to]="'#contact'" [ngx-scroll-to-duration]="1500" class="w3-bar-item w3-button ">Contact</button>
             </div>
         </div>
     </div>
 
     <div class="w3-top medNav">
         <div class="w3-bar w3-black w3-padding w3-card teal lighten-2" id="navigation-bar" style="letter-spacing:4px;">
-            <button [routerLink]="['/home']" class="w3-bar-item w3-button">Sammy Al Hashemi</button>
+            <button [routerLink]="['/home']" [ngx-scroll-to]="'#top'" class="w3-bar-item w3-button">Sammy Al Hashemi</button>
             <div class="w3-right w3-hide-small">
                 <button [routerLink]="[ '/guides'] " class="w3-bar-item w3-button ">
                     Guides
                 </button>
                 <button [routerLink]=" [ '/resume'] " class="w3-bar-item w3-button ">Resume</button>
                 <button [routerLink]="[ '/projects'] " class="w3-bar-item w3-button ">Projects</button>
-                <button [ngx-scroll-to]="'#contact'" [ngx-scroll-to-duration]="1500" class="w3-bar-item w3-button ">Contact</button>
+                <button [routerLink]="['/home']" [ngx-scroll-to]="'#contact'" [ngx-scroll-to-duration]="1500" class="w3-bar-item w3-button ">Contact</button>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
 
     <div class="w3-top smallNav">
         <div class="w3-bar w3-black w3-padding w3-card teal lighten-2" id="navigation-bar" style="letter-spacing:4px;">
-            <button [routerLink]="['/home']" class="w3-bar-item w3-button">
+            <button [routerLink]="['/home']" [ngx-scroll-to]="'#top'" class="w3-bar-item w3-button">
                 <mat-icon>home</mat-icon>
             </button>
             <!-- <div class="w3-right" id="buttonsHolder">
@@ -53,7 +53,7 @@
         <button mat-menu-item [routerLink]=" [ '/resume'] ">Resume</button>
         <button mat-menu-item [routerLink]="[ '/projects'] ">Projects</button>
         <button mat-menu-item [routerLink]="[ '/guides'] ">Guides</button>
-        <button mat-menu-item [ngx-scroll-to]="'#contact'" [ngx-scroll-to-duration]="1500">Contact</button>
+        <button mat-menu-item [routerLink]="['/home']" [ngx-scroll-to]="'#contact'" [ngx-scroll-to-duration]="1500">Contact</button>
     </mat-menu>
 
 </div>
