@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProjectsComponent } from './projects.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   declarations: [ProjectsComponent]
 })
-export class ProjectsModule { }
+export class ProjectsModule {}

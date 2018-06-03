@@ -1,12 +1,12 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { TimerService } from "../Sammy/timer.service";
-import { IListItem } from "../../shared/listItems";
-import { Subscription } from "rxjs/Subscription";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { TimerService } from '../Sammy/timer.service';
+import { IListItem } from '../../shared/listItems';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-  selector: "sammy-guide-component",
-  templateUrl: "./guide-component.component.html",
-  styleUrls: ["./guide-component.component.css"]
+  selector: 'sammy-guide-component',
+  templateUrl: './guide-component.component.html',
+  styleUrls: ['./guide-component.component.css']
 })
 export class GuideComponentComponent implements OnInit, OnDestroy {
   JerrorMessage: string;

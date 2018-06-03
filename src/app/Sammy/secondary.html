@@ -57,19 +57,20 @@
   .navbar-nav li a:hover {
     color: #1abc9c !important;
   }
+
 </style>
 <!-- First Container -->
 <div class="container-fluid bg-1 text-center mainContainer" id="mainContainer">
   <h1 class="margin SammyNameLarge">
-    <span typingAnimation [typeSpeed]="25" [startDelay]="1000" (complete)='this.onTypingComplete()'>Sammy Al Hashemi</span>
+    <!-- (complete)='this.onTypingComplete()' -->
+    <span typingAnimation [typeSpeed]="25" [startDelay]="1000">Sammy Al Hashemi</span>
     <br>
     <span class="typed"></span>
   </h1>
   <h1 class="margin SammyNameSmall">
-    <span typingAnimation [typeSpeed]="25" [startDelay]="1000" (complete)='this.onTypingComplete()'>Sammy</span>
+    <!--(complete)='this.onTypingComplete()'-->
+    <span typingAnimation [typeSpeed]="25" [startDelay]="1000">Sammy</span>
   </h1>
-
-
 
   <img src="..\assets\images\sanFran.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Picture of Me"
     width="350" height="350">
@@ -93,45 +94,57 @@
   <br>
   <div class="row">
     <div class="col-md-4 col-sm-4 col-lg-2">
-      <div (mouseenter)="togglePython() " (mouseleave)="togglePython() " class="component-card ">
+      <div class="component-card ">
+        <!--div (mouseenter)="togglePython() " (mouseleave)="togglePython() " class="component-card "-->
         <div class="w3-card avatar ">
           <img src="..\assets\images\python_background.png " class="backgroundIMG1 ">
         </div>
-        <div class="w3-container card-explanation " [@hoverOverTransition]="hoverState ">
-          <h5>Python</h5>
-          <p>
-            Learn Some Cool Python Stuff
-          </p>
-          <ng-container *ngIf='this.hoverState === "Hovered"'>
-            <ul>
-              <!--[@listAnimation]="this.items.length "-->
-              <li *ngFor='let item of this.items'>
-                <a [routerLink]="[ '/guides',item.Link] ">{{ item.Description }}</a>
-                <!-- href='{{item.Link}}' -->
-              </li>
-            </ul>
-          </ng-container>
+        <div class="w3-container card-explanation " [@hoverOverTransition]="hoverState">
+          <div class="blogDescription">
+            <h3>Python</h3>
+            <p>
+              Learn Some Cool Python Stuff
+            </p>
+          </div>
+          <div class="expCont">
+            <ng-container *ngIf='this.hoverState === "Hovered"'>
+              <ul [@listAnimation]>
+                <!--[@listAnimation]="this.items.length "-->
+                <li class="guideItem" *ngFor='let item of this.items'>
+                  <a [routerLink]="[ '/guides',item.Link] ">
+                    <div>{{ item.Description }}</div>
+                  </a>
+                  <!-- href='{{item.Link}}' -->
+                </li>
+              </ul>
+            </ng-container>
+          </div>
         </div>
       </div>
     </div>
     <div class="col-md-4 col-sm-4 col-lg-2">
-      <div (mouseenter)="toggleJava() " (mouseleave)="toggleJava() " class="component-card">
+      <div class="component-card ">
+        <!--div (mouseenter)="toggleJava() " (mouseleave)="toggleJava() " class="component-card"-->
         <div class="w3-card avatar ">
           <img src="..\assets\images\java.jpg " class="backgroundIMG2 ">
         </div>
         <div class="w3-container card-explanation " [@JhoverOverTransition]="JhoverState">
-          <h5>Quantum Mechanics</h5>
-          <p>
-            QM for life
-          </p>
-          <ng-container *ngIf='this.JhoverState === "JHovered"' [@listAnimation]>
-            <ul>
-              <!--[@listAnimation]="this.items.length "-->
-              <li *ngFor='let item of this.Jitems'>
-                <a [routerLink]="[ '/guides',item.Link]">{{ item.Description }}</a>
-              </li>
-            </ul>
-          </ng-container>
+          <div class="blogDescription">
+            <h3>Quantum Mechanics</h3>
+            <p>
+              QM for life
+            </p>
+            <div class="expCont">
+              <ng-container *ngIf='this.JhoverState === "JHovered"' [@listAnimation]>
+                <ul [@listAnimation]>
+                  <!--[@listAnimation]="this.items.length "-->
+                  <li class="guideItem" *ngFor='let item of this.Jitems'>
+                    <a [routerLink]="[ '/guides',item.Link]">{{ item.Description }}</a>
+                  </li>
+                </ul>
+              </ng-container>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -153,11 +166,11 @@
   <h1>Contact Information</h1>
   <br>
   <p>Feel free to contact me via email:
-    <a href="mailto:sammy.alhashemi@mail.utoronto.ca ">sammy.alhashemi@mail.utoronto.ca</a>
+    <a>sammy(dot)alhashemi(at)mail(dot)utoronto(dot)ca</a>
   </p>
-  <p>You can also contact me by phone
+  <!-- <p>You can also contact me by phone
     <a href="tel:408-908-9512 ">408-908-9512</a>
-  </p>
+  </p> -->
 </div>
 <!-- End page content -->
 

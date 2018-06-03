@@ -4,16 +4,25 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('../../assets/styles/style.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
-
 p.info-zone {
   word-wrap: break-word;
 }
 
 .eduLogo {
   animation: App-logo-spin infinite 3s linear;
+  -webkit-animation: App-logo-spin infinite 3s linear;
 }
 
 @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }

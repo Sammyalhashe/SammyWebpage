@@ -100,7 +100,7 @@ img::-moz-selection {
   color: #343a40;
 }
 
-#mainNav .navbar-nav > li.nav-item > a {
+#mainNav .navbar-nav>li.nav-item>a {
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 1px;
@@ -120,12 +120,12 @@ img::-moz-selection {
   #mainNav .navbar-brand:hover {
     color: rgba(255, 255, 255, 0.8);
   }
-  #mainNav .navbar-nav > li.nav-item > a {
+  #mainNav .navbar-nav>li.nav-item>a {
     padding: 10px 20px;
     color: #fff;
   }
-  #mainNav .navbar-nav > li.nav-item > a:focus,
-  #mainNav .navbar-nav > li.nav-item > a:hover {
+  #mainNav .navbar-nav>li.nav-item>a:focus,
+  #mainNav .navbar-nav>li.nav-item>a:hover {
     color: rgba(255, 255, 255, 0.8);
   }
 }
@@ -160,11 +160,11 @@ img::-moz-selection {
   #mainNav.is-fixed .navbar-brand:hover {
     color: #0085a1;
   }
-  #mainNav.is-fixed .navbar-nav > li.nav-item > a {
+  #mainNav.is-fixed .navbar-nav>li.nav-item>a {
     color: #212529;
   }
-  #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus,
-  #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
+  #mainNav.is-fixed .navbar-nav>li.nav-item>a:focus,
+  #mainNav.is-fixed .navbar-nav>li.nav-item>a:hover {
     color: #0085a1;
   }
   #mainNav.is-visible {
@@ -279,47 +279,47 @@ header.masthead .post-heading .meta a {
   }
 }
 
-.post-preview > a {
+.post-preview>a {
   color: #212529;
 }
 
-.post-preview > a:focus,
-.post-preview > a:hover {
+.post-preview>a:focus,
+.post-preview>a:hover {
   text-decoration: none;
   color: #0085a1;
 }
 
-.post-preview > a > .post-title {
+.post-preview>a>.post-title {
   font-size: 30px;
   margin-top: 30px;
   margin-bottom: 10px;
 }
 
-.post-preview > a > .post-subtitle {
+.post-preview>a>.post-subtitle {
   font-weight: 300;
   margin: 0 0 10px;
 }
 
-.post-preview > .post-meta {
+.post-preview>.post-meta {
   font-size: 18px;
   font-style: italic;
   margin-top: 0;
   color: #868e96;
 }
 
-.post-preview > .post-meta > a {
+.post-preview>.post-meta>a {
   text-decoration: none;
   color: #212529;
 }
 
-.post-preview > .post-meta > a:focus,
-.post-preview > .post-meta > a:hover {
+.post-preview>.post-meta>a:focus,
+.post-preview>.post-meta>a:hover {
   text-decoration: underline;
   color: #0085a1;
 }
 
 @media only screen and (min-width: 768px) {
-  .post-preview > a > .post-title {
+  .post-preview>a>.post-title {
     font-size: 36px;
   }
 }

@@ -1,6 +1,6 @@
 import { IpicsItem } from './../../shared/IpicsItem';
 import { IListItem } from './../../shared/listItems';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
@@ -17,20 +17,20 @@ export class TimerService {
   getPythonLinks(): Observable<IListItem[]> {
     return this._http
       .get<IListItem[]>(this.pyURL)
-      .do(data => console.log('All Data : ' + JSON.stringify(data)))
       .catch((err: HttpErrorResponse) => {
         console.log(err.message);
         return Observable.throw(err.message);
       });
+    // .do(data => console.log('All Data : ' + JSON.stringify(data)))
   }
 
   getQcLinks(): Observable<IListItem[]> {
     return this._http
       .get<IListItem[]>(this.qcURL)
-      .do(data => console.log('All Data : ' + JSON.stringify(data)))
       .catch((err: HttpErrorResponse) => {
         console.log(err.message);
         return Observable.throw(err.message);
       });
+    // .do(data => console.log('All Data : ' + JSON.stringify(data)))
   }
 }

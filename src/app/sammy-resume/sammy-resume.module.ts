@@ -4,16 +4,8 @@ import { CommonModule } from '@angular/common';
 import { ResumeComponent } from './sammy-resume.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
-  declarations: [
-    ResumeComponent
-  ],
-  exports: [
-    ResumeComponent
-  ]
-
+  imports: [CommonModule, RouterModule],
+  declarations: [ResumeComponent],
+  exports: [ResumeComponent]
 })
-export class SammyResumeModule { }
+export class SammyResumeModule {}

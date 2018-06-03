@@ -52,20 +52,22 @@
             <div class="w3-card avatar ">
               <img src="..\assets\images\python_background.png " class="backgroundIMG1 ">
             </div>
-            <div class="w3-container card-explanation " [@hoverOverTransition]="hoverState ">
+            <div class="w3-container card-explanation " [@hoverOverTransition]="hoverState">
               <h5>Python</h5>
               <p>
                 Learn Some Cool Python Stuff
               </p>
-              <ng-container *ngIf='this.hoverState === "Hovered"'>
-                <ul>
-                  <!--[@listAnimation]="this.items.length "-->
-                  <li *ngFor='let item of this.items'>
-                    <a [routerLink]="[ '/guides',item.Link,'test'] ">{{ item.Description }}</a>
-                    <!-- href='{{item.Link}}' -->
-                  </li>
-                </ul>
-              </ng-container>
+              <div class="expCont">
+                <ng-container *ngIf='this.hoverState === "Hovered"'>
+                  <ul [@listAnimation]="hoverState">
+                    <!--[@listAnimation]="this.items.length "-->
+                    <li *ngFor='let item of this.items'>
+                      <a [routerLink]="[ '/guides',item.Link,'test'] ">{{ item.Description }}</a>
+                      <!-- href='{{item.Link}}' -->
+                    </li>
+                  </ul>
+                </ng-container>
+              </div>
             </div>
           </a>
         </div>

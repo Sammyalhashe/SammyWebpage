@@ -1,135 +1,275 @@
 <body>
 
 
-    <!-- Page Header -->
-    <header class="masthead" style="background-image: url('../../assets/images/noteQ.JPG')">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="col">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="post-heading">
-                        <h1>Man must explore, and this is exploration at its greatest</h1>
-                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-                        <span class="meta">Posted by Sammy Al Hashemi</span>
-                    </div>
-                </div>
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('../../assets/images/noteQ.JPG')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="col">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <div [ngSwitch]="this.blogToDisplay">
+              <div *ngSwitchCase="'abc'">
+                <h1>Comparative Analysis: Riggetti Forest vs. IBM Q</h1>
+              </div>
+              <div *ngSwitchDefault>
+                <h1>Man must explore, and this is exploration at its greatest</h1>
+                <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+              </div>
             </div>
+            <span class="meta">Posted by Sammy Al Hashemi</span>
+          </div>
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <!-- Post Content -->
-    <article>
+  <!-- Post Content -->
+  <article>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere,
-                        a globe, having the qualities of a globe, a round earth in which all the directions eventually meet,
-                        in which there is no center because every point, or none, is center — an equal earth which all men
-                        occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice,
-                        not in theory.</p>
 
-                    <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning
-                        back from science. The early warnings about technological dangers also come from science.</p>
 
-                    <p>What was most significant about the lunar voyage was not that man set foot on the Moon but that they
-                        set eye on the earth.</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div [ngSwitch]="this.blogToDisplay">
+            <div id="rigettiIBM" *ngSwitchCase="'abc'">
+              <p>
+                For those who only even have the slightest interest in the budding field of quantum computing have probably heard of IBM’s
+                advancements and efforts in IBM Q. Those newer to the field may have minimal, or even no knowledge of another
+                company making strides, a start-up from Berkeley called Rigetti. Both of these companies have developed their
+                own quantum processors. As of April 2018, Rigetti’s quantum processor is 20 qubits while IBM’s is also commercially
+                offering a quantum processor of 20 qubits. Rigetti provides access to their quantum chip (and quantum simulators)
+                by providing an API called Forest while IBM gives their QISkit SDK which also lets users access their quantum
+                chip through an API interface. IBM Q works with the quantum instruction language QASM to configure quantum
+                circuits on their quantum processor or in simulators. On the other hand, Rigetti uses their own quantum instruction
+                language called Quil to build quantum circuits.
+              </p>
+              <p>
+                Overview Comparison: Rigetti: Forest comes with Quil, the quantum instruction language, pyQuil, a python library to help
+                write and run Quil code, access to a QVM (Quantum Virtual Machine), and a special connection to QPU (Rigetti’s
+                20 qubit Quantum Processor). The QPU is available for customers with upgraded access. With this access, it
+                is possible to run “analog” experiments to understand the performance of their qubits and characterize them
+                based on their performance in the presence of noise. The resonant frequencies of qubits 0-4 and 10-14 are
+                tunable to the users need, while everything else is fixed. Normal users are required to run their programs
+                on a simulator called Rigetti’s QVM (quantum virtual machine) with up to 30 virtual qubits.
+              </p>
+              <p>
+                To write quantum programs, Rigetti provides their pyQuil sdk which allows customers to write their quantum algorithms in
+                Python. Rigetti also provides a separate repo of quantum algorithms built using pyQuil called Grover. On
+                the client side, quantum algorithms written by the user are trans compiled into Quil code. This Quil code
+                is sent over the cloud for which it is used to compile into quantum hardware and execute on their quantum
+                processor or on their simulator.
+              </p>
+              <p>
+                Quil, as a quantum instruction language, is portable, foundational, and hybrid in nature. With Quil, quantum and classical
+                processors have a “symbiotic” relationship, which makes the Forest API good for leveraging classical/quantum
+                hybrid algorithms on near-term quantum devices (devices with anywhere between 3-100 noisy qubits) instead
+                of running “pure” quantum algorithms such as Shor’s algorithm. PyQuil also grants easy access to importing
+                the most important gates, such as the Pauli operators. It is also very easy to implement a new program by
+                simply initializing a Program() object with a set of quantum operations on a base state. In addition to running
+                programs on the QVM or QPU, users can also directly access the Quil compiler for further investigation into
+                how quantum programs can be compiled to target specific instruction set architectures.
+              </p>
+              <p>
+                Rigetti's compiler is now accessible through a dedicated API, this lets you experiment compiling a quantum program into different
+                hardware architectures. Rigetti has also introduced built-in tools for quantum state and process tomography.
+                This will make it easier to debug the programs created. In addition, Rigetti also provides jsQuil, if there
+                is a preference to use JS over Python. PyQuil is also open source. This feature is nice for debugging purposes.
+              </p>
+              <p>
+                IBM Q: Much of IBM Q is similar to Rigetti Forest. IBM’s QISKit project includes the QISKit SDK, the QISKit API, and a collection
+                of Jupyter notebooks using QISKit as examples. At a high level, we generate a quantum program using the python
+                interface of QISKit. Upon compilation, the python is used to generate QASM code describing quantum circuits.
+                Although IBM also uses both classical and quantum processors in QASM to define their quantum circuits, they
+                place much less emphasis on hybrid computation within their python interface relative to Rigetti.
+              </p>
+              <p>
+                Python Interface: Rigetti: Defining a quantum program using Rigetti’s pyQuil SDK is as easy as importing a few modules provided
+                by the SDK, instantiating a quantum program object with the number of qubits you plan to use, and using imported
+                operators or “gates” to apply and operator to the system or to take a measurement. A measurement returns
+                a wavefunction describing the state of the qubits used in the program. For example, I pulled this example
+                from their documents:
+              </p>
+              <p>
+                <code style="display:block"># Imports for pyQuil (ignore for now)
+                  <br> import numpy as np from pyquil.quil
+                  <br> import Program from pyquil.api
+                  <br> import QVMConnection
+                  <br> quantum_simulator = QVMConnection()
+                  <br> # pyQuil is based around operations (or gates) so we will start with the most
+                  <br> # basic one: the identity operation, called I. I takes one argument, the index
+                  <br> # of the qubit that it should be applied to.
+                  <br> from pyquil.gates import I
+                  <br> # Make a quantum program that allocates one qubit (qubit #0) and does nothing to it
+                  <br> p = Program(I(0)) # Quantum states are called wavefunctions for historical reasons.
+                  <br> # We can run this basic program on our connection to the simulator.
+                  <br> # This call will return the state of our qubits after we run program p.
+                  <br> # This api call returns a tuple, but we'll ignore the second value for now.
+                  <br> wavefunction = quantum_simulator.wavefunction(p)
+                  <br> # wavefunction is a Wavefunction object that stores a quantum state as a list of amplitudes
+                  <br> alpha, beta = wavefunction
+                  <br> print("Our qubit is in the state alpha=&#123;&#125; and beta=&#123;&#125;".format(alpha, beta))
+                  <br> print("The probability of measuring the qubit in outcome 0 is &#123;&#125;".format(abs(alpha)**2))
+                  <br> print("The probability of measuring the qubit in outcome 1 is &#123;&#125;".format(abs(beta)**2))
+                </code>
+              </p>
+              <p>
+                This code describes a quantum program that uses one qubit and applies the Identity operator to it. As you can see, we import
+                the Program and QVMConnection classes to both create a quantum program and test it. We also import the Identity
+                operator from the
+                <code>pyQuil.gates</code> module. PyQuil has several provided operators for us to use, such as the Identity operator
+                shown previously, they include:
+              </p>
+              <ul>
+                <li>The Identity operator</li>
+                <li>The Pauli Operators </li>
+                <li>Hadamard operator </li>
+                <li>Phase gates </li>
+                <li>Controlled phase</li>
+                <li>gates </li>
+                <li>Cartesian rotation gates </li>
+                <li>Controlled gates </li>
+                <li>SWAP gates</li>
+              </ul>
+              <p>
+                In addition to this, new gates are easily defined by creating your own numpy arrays and using the
+                <code>defgate()</code> function to add the gate to your program. To define parametric gates, the only difference
+                is to import the
+                <code>DefGate</code> class and create an instantiation using a numpy array with a defined parameter. Measurements
+                in pyQuil project the state vector onto one of the basic outcomes, while optionally storing the outcome of
+                the measurement in a classical bit. It’s important to note that while optional, we cannot actually check
+                the wavefunction, instead, we can only check the classical bits that are affected by the measurements, which
+                we can do with the optional measurement feature. This gives us the flexibility to also introduce “classical
+                control” of our quantum programs, like using the state of classical bits to determine what operations to
+                run on our qubits.
+              </p>
 
-                    <p>A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors
-                        rather than her violators. That's how I felt seeing the Earth for the first time. I could not help
-                        but love and cherish her.</p>
-
-                    <p>For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will,
-                        the experience most certainly changes your perspective. The things that we share in our world are
-                        far more valuable than those which divide us.</p>
-
-                    <h2 class="section-heading">The Final Frontier</h2>
-
-                    <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it
-                        is a task to occupy the generations. And no matter how much progress one makes, there is always the
-                        thrill of just beginning.</p>
-
-                    <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it
-                        is a task to occupy the generations. And no matter how much progress one makes, there is always the
-                        thrill of just beginning.</p>
-
-                    <blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered
-                        prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
-
-                    <p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical
-                        process which mankind is carrying out in accordance with the natural laws of human development.</p>
-
-                    <h2 class="section-heading">Reaching for the Stars</h2>
-
-                    <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size
-                        of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile,
-                        so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has
-                        to change a man.</p>
-
-                    <a href="#">
-                        <img class="img-fluid" src="img/post-sample-image.jpg" alt="">
-                    </a>
-                    <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
-
-                    <p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to
-                        explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man
-                        has gone before.</p>
-
-                    <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental
-                        truth to our nature, Man must explore, and this is exploration at its greatest.</p>
-
-                    <p>Placeholder text by
-                        <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
-                        <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
-                </div>
+              <p>
+                Some features of quantum programs constructed using pyQuil’s python interface include: Multiple instructions can be chained
+                together in any order It is easy to remove or add extra quantum instructions to quantum programs The Rigetti
+                QVM also has support for emulating noise models. Parametric programs are a convenient way to allow you to
+                use Python functions to generate templates of Quil programs. The great thing about Parametric programs is
+                that they cache computations that happen in their “wrapped” python programs so that the templates in Quil
+                can be efficiently substituted. Programs that use more than 19 qubits (or take longer than 10 seconds to
+                run) are rejected by the QVM. To get around this, you must instantiate a program with the use_queue parameter
+                set to True. There is also an asynchronous mode of interaction in these queues. To get the current status
+                of a job you can use the get_job() method on the QVM. Public Consultation: I have asked a couple of people
+                involved in the quantum computing community, and from their experience, Rigetti Forest is easier to use,
+                provides much more readable code (with both its python interface and its quantum processing language). In
+                terms of debugging, pyQUIL allows the user to print the wavefunction of a system.
+              </p>
             </div>
-        </div>
-    </article>
 
-    <hr>
+            <div *ngSwitchDefault>
+              <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe,
+                having the qualities of a globe, a round earth in which all the directions eventually meet, in which there
+                is no center because every point, or none, is center — an equal earth which all men occupy as equals. The
+                airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <ul class="list-inline text-center">
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
-                </div>
+              <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back
+                from science. The early warnings about technological dangers also come from science.</p>
+
+              <p>What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye
+                on the earth.</p>
+
+              <p>A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors
+                rather than her violators. That's how I felt seeing the Earth for the first time. I could not help but love
+                and cherish her.</p>
+
+              <p>For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the
+                experience most certainly changes your perspective. The things that we share in our world are far more valuable
+                than those which divide us.</p>
+
+              <h2 class="section-heading">The Final Frontier</h2>
+
+              <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task
+                to occupy the generations. And no matter how much progress one makes, there is always the thrill of just
+                beginning.
+              </p>
+
+              <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task
+                to occupy the generations. And no matter how much progress one makes, there is always the thrill of just
+                beginning.
+              </p>
+
+              <blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy.
+                We predict too much for the next year and yet far too little for the next ten.</blockquote>
+
+              <p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical
+                process which mankind is carrying out in accordance with the natural laws of human development.</p>
+
+              <h2 class="section-heading">Reaching for the Stars</h2>
+
+              <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble,
+                the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that
+                if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.</p>
+
+              <a href="#">
+                <img class="img-fluid" src="img/post-sample-image.jpg" alt="">
+              </a>
+              <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
+
+              <p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore
+                strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p>
+
+              <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth
+                to our nature, Man must explore, and this is exploration at its greatest.</p>
+
+              <p>Placeholder text by
+                <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
+                <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
             </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </article>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <hr>
 
-    <!-- Custom scripts for this template -->
-    <script src="js/clean-blog.min.js"></script>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
 
 </body>
