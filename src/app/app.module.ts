@@ -48,22 +48,31 @@ import { TimerService } from './Sammy/timer.service';
           animation: 'resumePage'
         }
       },
+      // {
+      //   path: 'guides',
+      //   component: GuideComponentComponent,
+      //   data: {
+      //     animation: 'guidePage'
+      //   },
+      //   resolve: {
+      //     links: LinksResolver
+      //   }
+      // },
       {
         path: 'guides',
-        component: GuideComponentComponent,
-        data: {
-          animation: 'guidePage'
-        },
-        resolve: {
-          links: LinksResolver
-        }
+        loadChildren: './guide-module/guide-module.module#GuideModuleModule'
       },
+      // {
+      //   path: 'projects',
+      //   loadChildren: './projects/projects.module#ProjectsModule',
+      //   component: ProjectsComponent,
+      //   data: {
+      //     animation: 'projectPage'
+      //   }
+      // },
       {
         path: 'projects',
-        component: ProjectsComponent,
-        data: {
-          animation: 'projectPage'
-        }
+        loadChildren: './projects/projects.module#ProjectsModule'
       },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: '/', pathMatch: 'full' }
