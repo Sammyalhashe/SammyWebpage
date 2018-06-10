@@ -6,9 +6,11 @@ import { IListItem } from '../../shared/listItems';
 import { OnInit, OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { TimerService } from './timer.service';
 import { Subscription } from 'rxjs/Subscription';
+import 'rxjs/add/operator/map';
 import { PageService } from '../../shared/sharedPageService.service';
 
 import { animationsList } from './sammy.component.animations';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   templateUrl: './secondary.html',
@@ -29,7 +31,7 @@ export class SammyComponent implements OnInit, OnDestroy {
   pySubscription: Subscription;
   qcSubscription: Subscription;
 
-  constructor(private _timer: TimerService) {
+  constructor(private _timer: TimerService, private route: ActivatedRoute) {
     // initialize class props
     this.hoverState = 'nonHovered';
     this.JhoverState = 'JnonHovered';
@@ -132,20 +134,45 @@ export class SammyComponent implements OnInit, OnDestroy {
       'navigation-bar'
     ) as HTMLElement;
     this.navigationBar.style.display = 'block';
+
     // subscribing to the service timer.service
-    this.pySubscription = this._timer
-      .getPythonLinks()
-      .subscribe(
+    // this.pySubscription = this._timer
+    //   .getPythonLinks()
+    //   .subscribe(
+    //     links => (this.items = links),
+    //     err => (this.errorMessage = err as any)
+    //   );
+
+    // this.qcSubscription = this._timer
+    //   .getQcLinks()
+    //   .subscribe(
+    //     links => (this.Jitems = links),
+    //     err => (this.JerrorMessage = err as any)
+    //   );
+
+    // using route resolver
+    this.route.data.do(console.log).subscribe(data => {
+      this.pySubscription = data['links'].pythonLinks.subscribe(
         links => (this.items = links),
         err => (this.errorMessage = err as any)
       );
-
-    this.qcSubscription = this._timer
-      .getQcLinks()
-      .subscribe(
+      this.qcSubscription = data['links'].qcLinks.subscribe(
         links => (this.Jitems = links),
         err => (this.JerrorMessage = err as any)
       );
+    });
+    // this.pySubscription = this.actr.data
+    //   .map(data => data.links.json().pythonLinks)
+    //   .subscribe(
+    //     links => (this.items = links),
+    //     err => (this.errorMessage = err as any)
+    //   );
+    // this.qcSubscription = this.actr.data
+    //   .map(data => data.links.json().qcLinks)
+    //   .subscribe(
+    //     links => (this.Jitems = links),
+    //     err => (this.errorMessage = err as any)
+    //   );
     this.init();
   }
 

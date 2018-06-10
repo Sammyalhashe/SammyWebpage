@@ -18,9 +18,11 @@ import { ProjectsModule } from './projects/projects.module';
 import { ProjectsComponent } from './projects/projects.component';
 import { GuideModuleModule } from './guide-module/guide-module.module';
 import { GuideComponentComponent } from './guide-component/guide-component.component';
+import { LinksResolver } from './Sammy/linksResolver.service';
 
 // External Modules
 import { AngularMaterialModule } from './angularMaterialconfig';
+import { TimerService } from './Sammy/timer.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +36,9 @@ import { AngularMaterialModule } from './angularMaterialconfig';
         component: SammyComponent,
         data: {
           animation: 'homePage'
+        },
+        resolve: {
+          links: LinksResolver
         }
       },
       {
@@ -48,6 +53,9 @@ import { AngularMaterialModule } from './angularMaterialconfig';
         component: GuideComponentComponent,
         data: {
           animation: 'guidePage'
+        },
+        resolve: {
+          links: LinksResolver
         }
       },
       {
@@ -67,7 +75,7 @@ import { AngularMaterialModule } from './angularMaterialconfig';
     ProjectsModule,
     GuideModuleModule
   ],
-  providers: [],
+  providers: [LinksResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule {

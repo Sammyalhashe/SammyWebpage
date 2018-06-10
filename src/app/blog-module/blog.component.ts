@@ -8,7 +8,7 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
-  private blogToDisplay: string;
+  blogToDisplay: string;
   constructor(private router: Router, private route: ActivatedRoute) {}
   ngOnInit(): void {
     console.log('BLOG');

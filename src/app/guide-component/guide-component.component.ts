@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TimerService } from '../Sammy/timer.service';
 import { IListItem } from '../../shared/listItems';
 import { Subscription } from 'rxjs/Subscription';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'sammy-guide-component',
@@ -16,23 +17,34 @@ export class GuideComponentComponent implements OnInit, OnDestroy {
   pySubscription: Subscription;
   qcSubscription: Subscription;
 
-  constructor(private _timer: TimerService) {}
+  constructor(private _timer: TimerService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     // subscribing to the service timer.service
-    this.pySubscription = this._timer
-      .getPythonLinks()
-      .subscribe(
+    // this.pySubscription = this._timer
+    //   .getPythonLinks()
+    //   .subscribe(
+    //     links => (this.items = links),
+    //     err => (this.errorMessage = err as any)
+    //   );
+    // this.qcSubscription = this._timer
+    //   .getQcLinks()
+    //   .subscribe(
+    //     links => (this.Jitems = links),
+    //     err => (this.JerrorMessage = err as any)
+    //   );
+
+    // using route resolver
+    this.route.data.do(console.log).subscribe(data => {
+      this.pySubscription = data['links'].pythonLinks.subscribe(
         links => (this.items = links),
         err => (this.errorMessage = err as any)
       );
-
-    this.qcSubscription = this._timer
-      .getQcLinks()
-      .subscribe(
+      this.qcSubscription = data['links'].qcLinks.subscribe(
         links => (this.Jitems = links),
         err => (this.JerrorMessage = err as any)
       );
+    });
   }
 
   ngOnDestroy(): void {
