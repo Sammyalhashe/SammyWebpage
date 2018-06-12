@@ -65,18 +65,17 @@ export class SammyComponent implements OnInit, OnDestroy {
   }
 
   checkPosition(): void {
-    if (window.innerWidth >= 757 && window.innerWidth <= 1699) {
-      if (
-        document.getElementById('picME').getBoundingClientRect().top === 208
-      ) {
+    if (window.innerWidth >= 757) {
+      if (document.getElementById('picME').getBoundingClientRect().top >= 208) {
         this.picExpand = true;
       } else {
         this.picExpand = false;
       }
     }
+    console.log(this.picExpand);
 
     // I only do this for larger screen in case of app
-    if (window.innerWidth >= 757 && window.innerWidth <= 1699) {
+    if (window.innerWidth >= 757) {
       // for sliding in main container divs
       if (
         this.secondContainer.getBoundingClientRect().top - this.windowHeight <=

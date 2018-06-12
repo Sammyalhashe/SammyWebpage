@@ -85,9 +85,9 @@
                 of running “pure” quantum algorithms such as Shor’s algorithm. PyQuil also grants easy access to importing
                 the most important gates, such as the Pauli operators. It is also very easy to implement a new program by
                 simply initializing a
-                <code>Program()</code> object with a set of quantum operations on a base state. In addition to running programs
-                on the QVM or QPU, users can also directly access the Quil compiler for further investigation into how quantum
-                programs can be compiled to target specific instruction set architectures.
+                <code>Program()</code> object with a set of quantum operations on a base state. In addition to running programs on the QVM or QPU,
+                users can also directly access the Quil compiler for further investigation into how quantum programs can
+                be compiled to target specific instruction set architectures.
               </p>
               <p>
                 Rigetti's compiler is now accessible through a dedicated API, this lets you experiment compiling a quantum program into different
@@ -136,8 +136,8 @@
                 This code describes a quantum program that uses one qubit and applies the Identity operator to it. As you can see, we import
                 the Program and QVMConnection classes to both create a quantum program and test it. We also import the Identity
                 operator from the
-                <code>pyQuil.gates</code> module. PyQuil has several provided operators for us to use, such as the Identity operator
-                shown previously, they include:
+                <code>pyQuil.gates</code> module. PyQuil has several provided operators for us to use, such as the Identity operator shown previously,
+                they include:
               </p>
               <ol>
                 <li>The Identity operator</li>
@@ -152,15 +152,13 @@
               </ol>
               <p>
                 In addition to this, new gates are easily defined by creating your own numpy arrays and using the
-                <code>defgate()</code> function to add the gate to your program. To define parametric gates, the only difference
-                is to import the
-                <code>DefGate</code> class and create an instantiation using a numpy array with a defined parameter. Measurements
-                in pyQuil project the state vector onto one of the basic outcomes, while optionally storing the outcome of
-                the measurement in a classical bit. It’s important to note that while optional, we cannot actually check
-                the wavefunction, instead, we can only check the classical bits that are affected by the measurements, which
-                we can do with the optional measurement feature. This gives us the flexibility to also introduce “classical
-                control” of our quantum programs, like using the state of classical bits to determine what operations to
-                run on our qubits.
+                <code>defgate()</code> function to add the gate to your program. To define parametric gates, the only difference is to import the
+                <code>DefGate</code> class and create an instantiation using a numpy array with a defined parameter. Measurements in pyQuil project
+                the state vector onto one of the basic outcomes, while optionally storing the outcome of the measurement
+                in a classical bit. It’s important to note that while optional, we cannot actually check the wavefunction,
+                instead, we can only check the classical bits that are affected by the measurements, which we can do with
+                the optional measurement feature. This gives us the flexibility to also introduce “classical control” of
+                our quantum programs, like using the state of classical bits to determine what operations to run on our qubits.
               </p>
 
               <p>
@@ -171,12 +169,12 @@
                 that they cache computations that happen in their “wrapped” python programs so that the templates in Quil
                 can be efficiently substituted. Programs that use more than 19 qubits (or take longer than 10 seconds to
                 run) are rejected by the QVM. To get around this, you must instantiate a program with the
-                <code>use_queue</code> parameter set to True. There is also an asynchronous mode of interaction in these queues.
-                To get the current status of a job you can use the
-                <code>get_job()</code> method on the QVM. Public Consultation: I have asked a couple of people involved in the
-                quantum computing community, and from their experience, Rigetti Forest is easier to use, provides much more
-                readable code (with both its python interface and its quantum processing language). In terms of debugging,
-                pyQUIL allows the user to print the wavefunction of a system.
+                <code>use_queue</code> parameter set to True. There is also an asynchronous mode of interaction in these queues. To get the current
+                status of a job you can use the
+                <code>get_job()</code> method on the QVM. Public Consultation: I have asked a couple of people involved in the quantum computing
+                community, and from their experience, Rigetti Forest is easier to use, provides much more readable code (with
+                both its python interface and its quantum processing language). In terms of debugging, pyQUIL allows the
+                user to print the wavefunction of a system.
               </p>
             </div>
 
@@ -190,13 +188,12 @@
                 <code>abstract</code> class from an
                 <code>interface</code> is that one requires full implementation (
                 <code>interface</code>) while the other does not. The
-                <code>abstract</code> class in Java only requires that the inheriting subclass provides implementations for all
-                'virtual implementations' of methods within.</p>
+                <code>abstract</code> class in Java only requires that the inheriting subclass provides implementations for all 'virtual implementations'
+                of methods within.</p>
               <p>Before Python 2..6, there was no way to declare an abstract class. It is now possible with the
                 <code>abc</code> (Abstract Beta Class) Python module. The
                 <code>abc</code> module will enforce that a derived class implements a particular method using a special
-                <code>@abstractmethod</code> decorator to the method. To use it, all that is necessary is to add the following
-                imports:
+                <code>@abstractmethod</code> decorator to the method. To use it, all that is necessary is to add the following imports:
               </p>
               <pre class="hljs"><code><div>    <span class="hljs-keyword">from</span> abc <span class="hljs-keyword">import</span> ABC, abstractmethod
 
@@ -219,8 +216,7 @@
                     '''</span>
               </div></code></pre>
               <p>This scenario will produce an error because the abstract method
-                <code>CreateNoise</code> was never overwritten from the parent abstract class. Compare this to the below working
-                code:
+                <code>CreateNoise</code> was never overwritten from the parent abstract class. Compare this to the below working code:
               </p>
               <pre class="hljs"><code><div>    <span class="hljs-keyword">from</span> abc <span class="hljs-keyword">import</span> ABC, abstractmethod
                   <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vehicle</span><span class="hljs-params">(ABC)</span>:</span>
@@ -247,8 +243,7 @@
                       <span class="hljs-keyword">raise</span> NotImplementedError
               </div></code></pre>
               <p>This code will throw an error if the
-                <code>SomeClassMethod</code> is not implemented. However, I also find that decorating the method and classes with
-                the
+                <code>SomeClassMethod</code> is not implemented. However, I also find that decorating the method and classes with the
                 <code>abc</code> module imports gives a more direct understanding that you are defining
                 <code>abstract</code> classes.</p>
 
@@ -298,12 +293,11 @@
                 <code>Super()</code>
               </h2>
               <p>In python, the
-                <code>super</code> keyword is used in classes. Is refers to the parent class(es) from which the class is inheriting
-                from. Calling
-                <code>super()</code> gives you access to all of the parent class' properties and methods. This sounds weird as
-                when you inherit a class, you already have access to the parent class' properties and methods. The use for
-                <code>super</code> comes is when you want to call parent methods or properties with the exact same name. This mainly
-                occurs with the
+                <code>super</code> keyword is used in classes. Is refers to the parent class(es) from which the class is inheriting from. Calling
+                <code>super()</code> gives you access to all of the parent class' properties and methods. This sounds weird as when you inherit
+                a class, you already have access to the parent class' properties and methods. The use for
+                <code>super</code> comes is when you want to call parent methods or properties with the exact same name. This mainly occurs
+                with the
                 <code>__init__</code> method of a class or when you override a class method.</p>
               <h2 id="now-back-to-mro">Now back to MRO</h2>
               <p>When a child class inherits from multiple parent classes (as in the example above), the Method Resolution Order
@@ -446,7 +440,7 @@
                     </div></code></pre>
               <p>for each year the player has played (I also added Stan Wawrinka for extra analysis). Then I went through all
                 objects generated for each player, discovered the average for each year, and added it to this plot:
-                <img src="/../../assets/images/Average_length_matches.png" alt="Average match length">
+                <img src="/assets/images/Average_length_matches.png" alt="Average match length">
               </p>
               <p>The first thing I noticed was that, in terms of match length, Roger Federer's matches, on average, run well
                 below the match times of the other four. This makes sense as Roger is a very aggressive player and likes
@@ -486,7 +480,7 @@
                 that 2013 was Rafa's best year, enjoying his best performance on hard courts.</p>
               <div>
                 <p>For reference, here is a table with all bagels (from the data available in the repository):</p>
-                <img src="/../../assets/images/bagels.png" alt="Most bagels in a season">
+                <img src="/assets/images/bagels.png" alt="Most bagels in a season">
               </div>
             </div>
 
