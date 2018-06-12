@@ -1,9 +1,9 @@
-@import url("https://www.w3schools.com/w3css/4/w3.css");
-@import url("https://fonts.googleapis.com/css?family=Roboto");
-@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-@import url("../../assets/styles/style.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url('https://www.w3schools.com/w3css/4/w3.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('../../assets/styles/style.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 div.avatar {
   height: 150px;
   overflow: hidden;
@@ -11,7 +11,8 @@ div.avatar {
   border-top-right-radius: 25px;
 }
 
-.blogDescription {}
+.blogDescription {
+}
 
 .guideItem {
   background: teal;
@@ -23,7 +24,7 @@ div.avatar {
   border-radius: 2px;
 }
 
-.guideItem>a {
+.guideItem > a {
   text-decoration: none;
   color: white;
   position: relative;
@@ -143,6 +144,9 @@ img#tennisPic {
   .secondContainer.small {
     display: block;
   }
+  #mainContainer {
+    height: auto;
+  }
 }
 
 @media only screen and (min-width: 401px) and (max-width: 960px) {
@@ -166,6 +170,10 @@ img#tennisPic {
   }
   .secondContainer.small {
     display: block;
+  }
+  #mainContainer {
+    /* min-height: 100vh; */
+    height: auto;
   }
 }
 
@@ -191,6 +199,11 @@ img#tennisPic {
   .secondContainer.small {
     display: none;
   }
+
+  #mainContainer {
+    min-height: 100vh;
+    height: 100vh;
+  }
 }
 
 @media only screen and (min-width: 1025px) and (max-width: 1699px) {
@@ -215,6 +228,11 @@ img#tennisPic {
   .secondContainer.small {
     display: none;
   }
+
+  #mainContainer {
+    min-height: 100vh;
+    height: 100vh;
+  }
 }
 
 @media only screen and (min-width: 1700px) {
@@ -232,6 +250,11 @@ img#tennisPic {
   }
   .secondContainer.small {
     display: none;
+  }
+
+  #mainContainer {
+    min-height: 100vh;
+    height: 100vh;
   }
 }
 
@@ -258,9 +281,4 @@ div#contact {
 
 .logobutton {
   height: auto;
-}
-
-#mainContainer {
-  min-height: 100vh;
-  height: 100vh;
 }
