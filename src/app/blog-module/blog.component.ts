@@ -11,12 +11,10 @@ export class BlogComponent implements OnInit {
   blogToDisplay: string;
   constructor(private router: Router, private route: ActivatedRoute) {}
   ngOnInit(): void {
-    console.log('BLOG');
     this.router.events.subscribe(evt => {
       if (!(evt instanceof NavigationEnd)) {
         return;
       }
-      console.log('ROUTER');
       window.scrollTo(0, 0);
     });
 

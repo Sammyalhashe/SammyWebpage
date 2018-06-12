@@ -12,6 +12,52 @@ import {
 } from '@angular/animations';
 
 const animationsList = [
+  trigger('secContAnimation', [
+    state('false', style({ opacity: 0 })),
+    state('true', style({ opacity: 1 })),
+    transition(
+      'false => true',
+      animate(
+        '0.7s ease-in-out',
+        keyframes([
+          style({
+            opacity: 0,
+            transform: 'translateY(1000px) translateX(1000px)'
+          }),
+          style({
+            opacity: 0.2,
+            transform: 'translateY(500px) translateX(50px)'
+          }),
+          style({
+            opacity: 0.5,
+            transform: 'translateY(90px) translateX(30px)'
+          }),
+          style({ opacity: 1, transform: 'translateY(0px) translateX(0px)' })
+        ])
+      )
+    )
+  ]),
+  trigger('thirdContAnimation', [
+    state('false', style({ opacity: 0 })),
+    state('true', style({ opacity: 1 })),
+    transition(
+      'false => true',
+      animate(
+        '0.7s ease-in-out',
+        keyframes([
+          style({ opacity: 0, transform: 'translateY(1000px)' }),
+          style({ opacity: 0.5, transform: 'translateY(500px)' }),
+          style({ opacity: 1, transform: 'translateY(0px)' })
+        ])
+      )
+    )
+  ]),
+  trigger('picAnimation', [
+    state('false', style({ width: '350px' })),
+    state('true', style({ width: '450px' })),
+    transition('false => true', animate('0.5s ease-in')),
+    transition('true => false', animate('0.5s ease-in'))
+  ]),
   trigger('hoverOverTransition', [
     state(
       'Hovered',

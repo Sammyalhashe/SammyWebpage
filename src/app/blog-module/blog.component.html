@@ -9,8 +9,23 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
             <div [ngSwitch]="this.blogToDisplay">
-              <div *ngSwitchCase="'abc'">
+              <div *ngSwitchCase="'Rigetti_vs_IBM'">
                 <h1>Comparative Analysis: Riggetti Forest vs. IBM Q</h1>
+              </div>
+              <div *ngSwitchCase="'abc'">
+                <h1>Abstract Base Class in Python</h1>
+              </div>
+              <div *ngSwitchCase="'multipleInheritance'">
+                <h1>
+                  super() in Python(3+)</h1>
+              </div>
+              <div *ngSwitchCase="'big4'">
+                <h1>
+                  Tennis: Analysis of the Big4 with Python</h1>
+              </div>
+              <div *ngSwitchCase="'linAlg'">
+                <h1>
+                  Linear Algebra: A tool for Quantum mechanics</h1>
               </div>
               <div *ngSwitchDefault>
                 <h1>Man must explore, and this is exploration at its greatest</h1>
@@ -33,7 +48,9 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div [ngSwitch]="this.blogToDisplay">
-            <div id="rigettiIBM" *ngSwitchCase="'abc'">
+
+            <!--Rigetti vs IBM-->
+            <div id="rigettiIBM" *ngSwitchCase="'Rigetti_vs_IBM'">
               <p>
                 For those who only even have the slightest interest in the budding field of quantum computing have probably heard of IBM’s
                 advancements and efforts in IBM Q. Those newer to the field may have minimal, or even no knowledge of another
@@ -67,9 +84,10 @@
                 hybrid algorithms on near-term quantum devices (devices with anywhere between 3-100 noisy qubits) instead
                 of running “pure” quantum algorithms such as Shor’s algorithm. PyQuil also grants easy access to importing
                 the most important gates, such as the Pauli operators. It is also very easy to implement a new program by
-                simply initializing a Program() object with a set of quantum operations on a base state. In addition to running
-                programs on the QVM or QPU, users can also directly access the Quil compiler for further investigation into
-                how quantum programs can be compiled to target specific instruction set architectures.
+                simply initializing a
+                <code>Program()</code> object with a set of quantum operations on a base state. In addition to running programs
+                on the QVM or QPU, users can also directly access the Quil compiler for further investigation into how quantum
+                programs can be compiled to target specific instruction set architectures.
               </p>
               <p>
                 Rigetti's compiler is now accessible through a dedicated API, this lets you experiment compiling a quantum program into different
@@ -91,29 +109,29 @@
                 a wavefunction describing the state of the qubits used in the program. For example, I pulled this example
                 from their documents:
               </p>
-              <p>
+
+              <pre class="hljs">
                 <code style="display:block"># Imports for pyQuil (ignore for now)
-                  <br> import numpy as np from pyquil.quil
-                  <br> import Program from pyquil.api
-                  <br> import QVMConnection
-                  <br> quantum_simulator = QVMConnection()
-                  <br> # pyQuil is based around operations (or gates) so we will start with the most
-                  <br> # basic one: the identity operation, called I. I takes one argument, the index
+                  <br> <span class="hljs-keyword">import</span> numpy as np from pyquil.quil
+                  <br> <span class="hljs-keyword">import</span> Program from pyquil.api
+                  <br> <span class="hljs-keyword">import</span> QVMConnection
+                  <br> quantum_simulator = QVMConnection<span class="hljs-params">()</span>
+                  <br> <span class="hljs-comment"># basic one: the identity operation, called I. I takes one argument, the index</span>
                   <br> # of the qubit that it should be applied to.
-                  <br> from pyquil.gates import I
+                  <br> <span class="hljs-keyword">from</span> pyquil.gates <span class="hljs-keyword">import</span> I
                   <br> # Make a quantum program that allocates one qubit (qubit #0) and does nothing to it
-                  <br> p = Program(I(0)) # Quantum states are called wavefunctions for historical reasons.
+                  <br> p = Program<span class="hljs-params">(I<span class="hljs-params">(0)</span>)</span> # Quantum states are called wavefunctions for historical reasons.
                   <br> # We can run this basic program on our connection to the simulator.
                   <br> # This call will return the state of our qubits after we run program p.
                   <br> # This api call returns a tuple, but we'll ignore the second value for now.
-                  <br> wavefunction = quantum_simulator.wavefunction(p)
+                  <br> wavefunction = quantum_simulator.wavefunction<span class="hljs-params">(p)</span>
                   <br> # wavefunction is a Wavefunction object that stores a quantum state as a list of amplitudes
                   <br> alpha, beta = wavefunction
-                  <br> print("Our qubit is in the state alpha=&#123;&#125; and beta=&#123;&#125;".format(alpha, beta))
-                  <br> print("The probability of measuring the qubit in outcome 0 is &#123;&#125;".format(abs(alpha)**2))
-                  <br> print("The probability of measuring the qubit in outcome 1 is &#123;&#125;".format(abs(beta)**2))
+                  <br> print<span class="hljs-params">("Our qubit is in the state alpha=&#123;&#125; and beta=&#123;&#125;".format<span class="hljs-params">(alpha, beta)</span>)</span>
+                  <br> print<span class="hljs-params">("The probability of measuring the qubit in outcome 0 is &#123;&#125;".format<span class="hljs-params">(abs<span class="hljs-params">(alpha)</span>**2)</span>)</span>
+                  <br> print<span class="hljs-params">("The probability of measuring the qubit in outcome 1 is &#123;&#125;".format<span class="hljs-params">(abs<span class="hljs-params">(beta)</span>**2)</span>)</span>
                 </code>
-              </p>
+                </pre>
               <p>
                 This code describes a quantum program that uses one qubit and applies the Identity operator to it. As you can see, we import
                 the Program and QVMConnection classes to both create a quantum program and test it. We also import the Identity
@@ -121,7 +139,7 @@
                 <code>pyQuil.gates</code> module. PyQuil has several provided operators for us to use, such as the Identity operator
                 shown previously, they include:
               </p>
-              <ul>
+              <ol>
                 <li>The Identity operator</li>
                 <li>The Pauli Operators </li>
                 <li>Hadamard operator </li>
@@ -131,7 +149,7 @@
                 <li>Cartesian rotation gates </li>
                 <li>Controlled gates </li>
                 <li>SWAP gates</li>
-              </ul>
+              </ol>
               <p>
                 In addition to this, new gates are easily defined by creating your own numpy arrays and using the
                 <code>defgate()</code> function to add the gate to your program. To define parametric gates, the only difference
@@ -152,15 +170,331 @@
                 use Python functions to generate templates of Quil programs. The great thing about Parametric programs is
                 that they cache computations that happen in their “wrapped” python programs so that the templates in Quil
                 can be efficiently substituted. Programs that use more than 19 qubits (or take longer than 10 seconds to
-                run) are rejected by the QVM. To get around this, you must instantiate a program with the use_queue parameter
-                set to True. There is also an asynchronous mode of interaction in these queues. To get the current status
-                of a job you can use the get_job() method on the QVM. Public Consultation: I have asked a couple of people
-                involved in the quantum computing community, and from their experience, Rigetti Forest is easier to use,
-                provides much more readable code (with both its python interface and its quantum processing language). In
-                terms of debugging, pyQUIL allows the user to print the wavefunction of a system.
+                run) are rejected by the QVM. To get around this, you must instantiate a program with the
+                <code>use_queue</code> parameter set to True. There is also an asynchronous mode of interaction in these queues.
+                To get the current status of a job you can use the
+                <code>get_job()</code> method on the QVM. Public Consultation: I have asked a couple of people involved in the
+                quantum computing community, and from their experience, Rigetti Forest is easier to use, provides much more
+                readable code (with both its python interface and its quantum processing language). In terms of debugging,
+                pyQUIL allows the user to print the wavefunction of a system.
               </p>
             </div>
 
+
+            <!--Abstract Base Class-->
+            <div id="abc" *ngSwitchCase="'abc'">
+              <p>An abstract class is a class that cannot be instantiated, but only inherited from. It will usually include
+                some implementations, but can leave some class methods as 'virtual implementations' being only defined by
+                their signatures. It has strong roots in object-oriented programming with a purpose to define some common
+                behaviour that can be inherited from multiple subclasses. In Java, what would distinguish an
+                <code>abstract</code> class from an
+                <code>interface</code> is that one requires full implementation (
+                <code>interface</code>) while the other does not. The
+                <code>abstract</code> class in Java only requires that the inheriting subclass provides implementations for all
+                'virtual implementations' of methods within.</p>
+              <p>Before Python 2..6, there was no way to declare an abstract class. It is now possible with the
+                <code>abc</code> (Abstract Beta Class) Python module. The
+                <code>abc</code> module will enforce that a derived class implements a particular method using a special
+                <code>@abstractmethod</code> decorator to the method. To use it, all that is necessary is to add the following
+                imports:
+              </p>
+              <pre class="hljs"><code><div>    <span class="hljs-keyword">from</span> abc <span class="hljs-keyword">import</span> ABC, abstractmethod
+
+                  <span class="hljs-comment"># some abstract class</span>
+                  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassName</span><span class="hljs-params">(ABC)</span>:</span>
+
+              <span class="hljs-meta">      @abstractmethod</span>
+                    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">someAbstractMethod</span><span class="hljs-params">()</span>:</span> <span class="hljs-keyword">pass</span>
+              </div></code></pre>
+              <p>To see how it works consider this scenario:</p>
+              <pre class="hljs"><code><div>    <span class="hljs-keyword">from</span> abc <span class="hljs-keyword">import</span> ABC, abstractmethod
+                  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vehicle</span><span class="hljs-params">(ABC)</span>:</span>
+
+              <span class="hljs-meta">      @abstractmethod</span>
+                    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">CreateNoise</span><span class="hljs-params">()</span>:</span> print(<span class="hljs-string">'Vehicle Noise!'</span>)
+
+                  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span><span class="hljs-params">(Vehicle)</span>:</span>
+                    <span class="hljs-string">'''
+                    ... Other methods ...
+                    '''</span>
+              </div></code></pre>
+              <p>This scenario will produce an error because the abstract method
+                <code>CreateNoise</code> was never overwritten from the parent abstract class. Compare this to the below working
+                code:
+              </p>
+              <pre class="hljs"><code><div>    <span class="hljs-keyword">from</span> abc <span class="hljs-keyword">import</span> ABC, abstractmethod
+                  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vehicle</span><span class="hljs-params">(ABC)</span>:</span>
+
+              <span class="hljs-meta">      @abstractmethod</span>
+                    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">CreateNoise</span><span class="hljs-params">()</span>:</span> print(<span class="hljs-string">'Vehicle Noise!'</span>)
+
+                  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span><span class="hljs-params">(Vehicle)</span>:</span>
+                    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">CreateNoise</span><span class="hljs-params">()</span>:</span>
+                      super().CreateNoise() <span class="hljs-comment"># will print Vehicle Noise!</span>
+                      print(<span class="hljs-string">'Car Noise!'</span>)   <span class="hljs-comment"># will print Car Noise!</span>
+                    <span class="hljs-string">'''
+                    ... Other methods ...
+                    '''</span>
+              </div></code></pre>
+              <p>This works because the subclass of
+                <code>Vehicle</code>,
+                <code>Car</code> has succesfully overwritten every abstract method of
+                <code>Vehicle</code>.</p>
+              <h2 id="is-it-pythonic">Is it Pythonic?</h2>
+              <p>The answer is no, it is not. The more 'Pythonic' implementation would be something along the lines of:</p>
+              <pre class="hljs"><code><div>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SomeClass</span>:</span>
+                    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">SomeClassMethod</span><span class="hljs-params">()</span>:</span>
+                      <span class="hljs-keyword">raise</span> NotImplementedError
+              </div></code></pre>
+              <p>This code will throw an error if the
+                <code>SomeClassMethod</code> is not implemented. However, I also find that decorating the method and classes with
+                the
+                <code>abc</code> module imports gives a more direct understanding that you are defining
+                <code>abstract</code> classes.</p>
+
+            </div>
+
+
+            <!--Multiple Inheritance-->
+            <div id="multipleInheritance" *ngSwitchCase="'multipleInheritance'">
+              <p>Inheritance is a mechanism in object-oriented programming where one class will 'inherit' the properties and
+                characteristics of another class. This includes all class properties and class methods. The class that inherits
+                is called the child class while the class that is inherited from is called the parent class.</p>
+              <h2 id="inheritance-in-python3">Inheritance in Python(3+)</h2>
+              <p>Inheritance in python 3+ is done as so:</p>
+              <pre class="hljs"><code><div>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ParentClass</span>:</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+                            this.parentClassProperty = <span class="hljs-string">'blah'</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parentClassMethod</span><span class="hljs-params">()</span>:</span>
+                            print(<span class="hljs-string">'Parent Class Method!'</span>)
+
+                    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ChildClass</span><span class="hljs-params">(ParentClass)</span>:</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+                            this.childClassProperty = <span class="hljs-string">'blah blah'</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">childClassMethod</span><span class="hljs-params">()</span>:</span>
+                            print(<span class="hljs-string">'Child Class Method!'</span>)
+                </div></code></pre>
+              <p>Multiple inheritance is achieved the same way:</p>
+              <pre class="hljs"><code><div>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ParentClass1</span>:</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+                            this.parentClass1Property = <span class="hljs-string">'blah'</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parentClass1Method</span><span class="hljs-params">()</span>:</span>
+                            print(<span class="hljs-string">'Parent Class1 Method!'</span>)
+
+                    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ParentClass2</span>:</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+                            this.parentClass2Property = <span class="hljs-string">'blah'</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parentClass2Method</span><span class="hljs-params">()</span>:</span>
+                            print(<span class="hljs-string">'Parent Class2 Method!'</span>)
+
+                    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ChildClass</span><span class="hljs-params">(ParentClass1, ParentClass2)</span>:</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+                            this.childClassProperty = <span class="hljs-string">'blah blah'</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">childClassMethod</span><span class="hljs-params">()</span>:</span>
+                            print(<span class="hljs-string">'Child Class Method!'</span>)
+                </div></code></pre>
+              <p>The only extra consideration is that of the Method Resolution Order (MRO), for which I'll get to later.</p>
+              <h2 id="super">
+                <code>Super()</code>
+              </h2>
+              <p>In python, the
+                <code>super</code> keyword is used in classes. Is refers to the parent class(es) from which the class is inheriting
+                from. Calling
+                <code>super()</code> gives you access to all of the parent class' properties and methods. This sounds weird as
+                when you inherit a class, you already have access to the parent class' properties and methods. The use for
+                <code>super</code> comes is when you want to call parent methods or properties with the exact same name. This mainly
+                occurs with the
+                <code>__init__</code> method of a class or when you override a class method.</p>
+              <h2 id="now-back-to-mro">Now back to MRO</h2>
+              <p>When a child class inherits from multiple parent classes (as in the example above), the Method Resolution Order
+                is established. This order is defined by the inheritance order from left to right, and also includes the
+                child class itself. For the example above, when the
+                <code>childClass</code> is defined the method resolution order would be
+                <code>[childClass ,ParentClass1,ParentClass2]</code>. When
+                <code>super()</code> is called, on a method in
+                <code>ChildClass</code>, it will look for that method first in
+                <code>childClass</code>, then
+                <code>ParentClass1</code> and then
+                <code>ParentClass2</code>.</p>
+              <p>The MRO can be ambiguous at times. For a clear example on how complex it can get, consider this exerpt from
+                a
+                <a href="https://stackoverflow.com/questions/3277367/how-does-pythons-super-work-with-multiple-inheritance" title="How does Python's super() work with multiple inheritance?">Stack Overflow Answer</a>:</p>
+              <pre class="hljs"><code><div>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">First</span><span class="hljs-params">(object)</span>:</span>
+                    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+                        <span class="hljs-keyword">print</span> <span class="hljs-string">"first"</span>
+
+                    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Second</span><span class="hljs-params">(First)</span>:</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+                            <span class="hljs-keyword">print</span> <span class="hljs-string">"second"</span>
+
+                    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Third</span><span class="hljs-params">(First)</span>:</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+                            <span class="hljs-keyword">print</span> <span class="hljs-string">"third"</span>
+
+                    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Fourth</span><span class="hljs-params">(Second, Third)</span>:</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+                            super().__init__()
+                            <span class="hljs-keyword">print</span> <span class="hljs-string">"that's it"</span>
+                </div></code></pre>
+              <p>In this case, the MRO would be
+                <code>[Fourth, Second, Third, First]</code>.</p>
+              <p>Another Example:</p>
+              <pre class="hljs"><code><div>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span>:</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+                            print(<span class="hljs-string">'Initializing: class A'</span>)
+
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sub_method</span><span class="hljs-params">(self, b)</span>:</span>
+                            print(<span class="hljs-string">'Printing from class A :'</span>, b)
+
+
+                    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span><span class="hljs-params">(A)</span>:</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+                            print(<span class="hljs-string">'Initializing: class B'</span>)
+                            super().__init__()
+
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sub_method</span><span class="hljs-params">(self, b)</span>:</span>
+                            print(<span class="hljs-string">'Printing from class B :'</span>, b)
+                            super().sub_method(b + <span class="hljs-number">1</span>)
+
+
+                    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span><span class="hljs-params">(B)</span>:</span>
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+                            print(<span class="hljs-string">'Initializing: class C'</span>)
+                            super().__init__()
+
+                        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sub_method</span><span class="hljs-params">(self, b)</span>:</span>
+                            print(<span class="hljs-string">'Printing from class C :'</span>, b)
+                            super().sub_method(b + <span class="hljs-number">1</span>)
+                </div></code></pre>
+              <p>Here, class
+                <code>C</code> inherits from
+                <code>B</code> which also inherits from
+                <code>A</code>. Thus,
+                <code>C</code> effectively inherits from both
+                <code>B</code> and
+                <code>A</code>. The MRO would be
+                <code>[C, B, A]</code>.</p>
+
+            </div>
+
+            <!--Big 4-->
+            <div id="big4" *ngSwitchCase="'big4'">
+              <div>
+                <h2>Code used in this post:</h2>
+                <a id="pyDownload" href="../../assets/Downloadable/averageTimeMatchTopPlayers.py" download>Average Time Length</a>
+              </div>
+              <p>For those who follow tennis as much as I do, you defeinetely know the names Federer, Nadal, Djokovic, and Murrray.
+                Even those who don't follow the sport at all have probably heard at least three of those names.</p>
+              <p>These four have been by far some of the most dominant athletes of the past century. All together, they have
+                won
+                <strong>42 of the past 47 grand slams since Roland Garros in
+                  <em>2005</em>
+                </strong> (for those who are unsure, a Grand Slam is one of Wimbledon, Australian Open, Roland Garros, or US Open).
+                They have also won
+                <strong>88% of all
+                  <em>Master's 1000 series</em> tournaments since 2008</strong>. Only Marin Cilic, Jo-Wilfried Tsonga, Stan Wawrinka,
+                Robin Soderling, and David Ferrer have won one Master's 1000 title in that span.</p>
+              <p>Federer, who in my opinion is not only the greatest tennis player, but also the greatest
+                <em>athlete</em> of all time has picked up an asinine
+                <strong>20</strong> grand slams,
+                <strong>27</strong> Master's 1000 titles, and holds 97 titles in general (only behind Jimmy Connors at 109). At one
+                point in his career, he held the number one rank for
+                <strong>237 consecutive weeks</strong>, that's
+                <strong>
+                  <em>4.5 YEARS</em>
+                </strong>. Adding onto the insanity, he also went to 10 straight Grand Slam finals, 23 straight seminfinals, and 36
+                straight quarterfinals. His career record list is so big it has its own
+                <a href="https://en.wikipedia.org/wiki/List_of_career_achievements_by_Roger_Federer" title="List of Fed's Records">Wikipedia Page</a>.</p>
+              <p>Nadal's record list is almost as insane as Fed's. He has won
+                <strong>16 GS titles</strong> (and is currently goiing for his 17th at Roland Garros - more on that place for him
+                later),
+                <strong>32</strong> Master's 1000 titles, and holds 78 in general. Bacl to Roland Garros:
+                <strong>THE MAN HAS WON 10 (He is currently going for his 11th)</strong>. I am currently 21, he has been winning
+                this tournament since I was 8. Because of his dominance at Roland Garros, he holds the record for 10 consecutive
+                years winning at least 1 GS title. His record list is also so long it has its own
+                <a href="https://en.wikipedia.org/wiki/List_of_career_achievements_by_Rafael_Nadal" title="Rafa's records">wiki</a> page also.</p>
+              <p>Novak Djokovic has always been in the mix since 2007. However, it is at the end of 2010 that he
+                <em>really</em> took off. He dominated the sport from 2011 - 2016 winning 11 grand slams in that time. This is
+                probably the closest someone has come to matching Federer's dominance from 2003-2010. He is the only player
+                in the Big 4 to hold
+                <strong>all grand slams at once</strong> (so yes he won four Grand slams in a row at his peak) at made the semifinals
+                or better in
+                <strong>23 out of 24</strong> grand slam events at one point. He has won
+                <strong>30</strong> Master's 1000 titles and stands alone with
+                <strong>22 hardcourt master's 1000 titles</strong>. In general, he holds 68 career titles. Again, here is a
+                <a href="https://en.wikipedia.org/wiki/List_of_career_achievements_by_Novak_Djokovic" title="Novak's records">wiki page</a> displaying all of his records.</p>
+              <p>Although Andy Murray's Grand Slam or Master's 1000 title count isn't
+                <em>as</em> impressive or eye popping as the other three, he has laways been in the mix for grand slam titles,
+                only losing to the other three. He has also been just as consistent, with a bit more luck he could have had
+                numbers comparable to Roger, Rafa, and Djoker. Most notably for British tennis fans, and citizens in general,
+                he won the first British Grand Slam in 76 years at the US Open in 2012 and became the first Brit to win Wimbledon
+                the next year since Fred Perry in 1936.</p>
+              <p>Using a
+                <a href="https://github.com/JeffSackmann/tennis_atp" title="ATP Match Repo">Github repo</a> of ATP match statistics dating back to 1968, I decided to investigate these four and their
+                career match stats using Python.</p>
+              <p>I first decided to investigate the average lengths of their matches over all their years of playing. I did
+                so by looking at the average number of sets played per match and then (obviously), the average length of
+                matches in a year. With python, this was easy. All I did was have a script that parsed through all the data
+                for each player, and built this object:</p>
+              <pre class="hljs">
+                <code><div> <span class="spacer">&#123;</span>
+                  <span class="hljs-string">'year'</span>: year,
+                  <span class="hljs-string">'sets'</span>: <span class="hljs-number">0</span>,
+                  <span class="hljs-string">'minutes'</span>: <span class="hljs-number">0</span>,
+                  <span class="hljs-string">'matches'</span>: <span class="hljs-number">0</span>
+                  &#125;
+                    </div></code></pre>
+              <p>for each year the player has played (I also added Stan Wawrinka for extra analysis). Then I went through all
+                objects generated for each player, discovered the average for each year, and added it to this plot:
+                <img src="../../assets/images/Average_length_matches.png" alt="Average match length">
+              </p>
+              <p>The first thing I noticed was that, in terms of match length, Roger Federer's matches, on average, run well
+                below the match times of the other four. This makes sense as Roger is a very aggressive player and likes
+                to finish rally's sooner than later while the others are more comfortable grinding out long points to break
+                down the opponent. Rafael Nadal has always been a grinder on the tour. He breaks down opponents mentally
+                and then pounces when the time is right. This is why for me it's unsurprising that his matches on average
+                seems to run almost two hours long. Novak Djokovic is quite similar to Rafa, only difference is that he is
+                slightly more aggresive (except in more recent years), and this is reflected in the results. Also unsurprising,
+                Andy Murray matches run the latest. His critics have alsways labelled Andy as a &quot;pusher&quot; (which
+                in tennis means a brick wall that gets everything back) and that he needs to be more aggressive. There is
+                virtue in that criticism, as shown in the results, but then again the guy has been world number 1 and 3 time
+                slam champion so something is working. It's intersting when you take a look at 2007-2008, the year when Andy
+                Murray actually has the lowest match time. Look back at footage from the 2008 US open (he made the final)
+                and see how aggressive he was, I think that should explain it. Wawrinka is in the middle of the pack here.
+                The guy has monster shots and overpowers his opponents. As a result of this approach, he also has much more
+                unforced errors made. These errors are what drags his match time out.</p>
+              <p>When one takes a look at the average number of sets played, the only thing that I would like to point out is
+                that Roger is in the middle of the group. This can sound weird considering how much lower his match runtime
+                is, but this can be explained. In tennis, sets can come and go quickly, and sets can be long and gruelling.
+                For as long as I've watched Federer play, I can say some games in sets mean much more to Federer than other.
+                He will sometimes blow a game completely because he honestly doesn't care about it. All he cares about is
+                getting the crucial break of serve later on in the set (his service games in his sets are always super quick).
+                Once he gets that, he can serve the set out. As a result, Federer can miss a couple of these important games
+                and actually lose sets because of the risks he takes. The point is that these sets are fast because he throws
+                away games that don't matter for him and his service games are quick.</p>
+              <p>For a second investigation, I looked into the players with the most bagels in certain seasons. For the sake
+                of conciseness, I will list out players whom I've already analyzed. From this repo, Roger Federer has achieved
+                the most bagels in a single year at
+                <strong>19</strong> in 2006. This was Federer's best year statistically and performance-wise. He also had the most
+                bagels in 2004 at
+                <strong>12</strong>. Novak Djokovic shows up three times with
+                <strong>14, 13, and 12</strong> in 2013, 2011, and 2015 respectively. These years were during Djokovic's absolute
+                prime from when he dominated the sport. Nadal had the most bagels in years 2008, 2013, 2005, and 2009. He
+                had
+                <strong>12, 11, 11, and 10</strong> respectively. The years 2008 and 2013 were very significant in Rafa's career.
+                2008 is when he first became world number 1 after living in Federer's shadow for so long and it can be argued
+                that 2013 was Rafa's best year, enjoying his best performance on hard courts.</p>
+              <div>
+                <p>For reference, here is a table with all bagels (from the data available in the repository):</p>
+                <img src="../../assets/images/bagels.png" alt="Most bagels in a season">
+              </div>
+            </div>
+
+            <div id="linAlg" *ngSwitchCase="'linAlg'">
+              <h1>Coming Soon</h1>
+            </div>
+
+            <!--Default Case-->
             <div *ngSwitchDefault>
               <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe,
                 having the qualities of a globe, a round earth in which all the directions eventually meet, in which there
@@ -235,7 +569,7 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <ul class="list-inline text-center">
             <li class="list-inline-item">
-              <a href="#">
+              <a href="https://twitter.com/SammyAlhashemi1">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -243,7 +577,7 @@
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">
+              <a href="https://www.facebook.com/sammy.alhashemi">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -251,7 +585,7 @@
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">
+              <a href="https://github.com/Sammyalhashe">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -259,7 +593,6 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
         </div>
       </div>
     </div>

@@ -137,6 +137,12 @@ img#tennisPic {
   .SammyNameLarge {
     display: none;
   }
+  .secondContainer.large {
+    display: none;
+  }
+  .secondContainer.small {
+    display: block;
+  }
 }
 
 @media only screen and (min-width: 401px) and (max-width: 960px) {
@@ -153,6 +159,12 @@ img#tennisPic {
     display: none;
   }
   .SammyNameLarge {
+    display: block;
+  }
+  .secondContainer.large {
+    display: none;
+  }
+  .secondContainer.small {
     display: block;
   }
 }
@@ -173,6 +185,12 @@ img#tennisPic {
   .SammyNameLarge {
     display: block;
   }
+  .secondContainer.large {
+    display: block;
+  }
+  .secondContainer.small {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 1025px) and (max-width: 1699px) {
@@ -191,6 +209,12 @@ img#tennisPic {
   .SammyNameLarge {
     display: block;
   }
+  .secondContainer.large {
+    display: block;
+  }
+  .secondContainer.small {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 1700px) {
@@ -202,6 +226,12 @@ img#tennisPic {
   }
   .SammyNameLarge {
     display: block;
+  }
+  .secondContainer.large {
+    display: block;
+  }
+  .secondContainer.small {
+    display: none;
   }
 }
 
@@ -224,4 +254,13 @@ div#contact {
   margin: 0 auto;
   font-size: 2rem;
   word-wrap: break-word;
+}
+
+.logobutton {
+  height: auto;
+}
+
+#mainContainer {
+  min-height: 100vh;
+  height: 100vh;
 }

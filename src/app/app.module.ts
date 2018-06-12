@@ -62,6 +62,10 @@ import { TimerService } from './Sammy/timer.service';
         path: 'guides',
         loadChildren: './guide-module/guide-module.module#GuideModuleModule'
       },
+      {
+        path: 'guides/:id',
+        loadChildren: './blog-module/blog-module.module#BlogModule'
+      },
       // {
       //   path: 'projects',
       //   loadChildren: './projects/projects.module#ProjectsModule',
@@ -87,14 +91,4 @@ import { TimerService } from './Sammy/timer.service';
   providers: [LinksResolver],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    @Inject(APP_ID) private appId: string
-  ) {
-    const platform = isPlatformBrowser(platformId)
-      ? 'in the browser'
-      : 'on the server';
-    console.log(`Running ${platform} with appId=${appId}`);
-  }
-}
+export class AppModule {}

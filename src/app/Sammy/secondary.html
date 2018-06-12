@@ -72,13 +72,24 @@
     <span typingAnimation [typeSpeed]="25" [startDelay]="1000">Sammy</span>
   </h1>
 
-  <img src="..\assets\images\sanFran.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Picture of Me"
-    width="350" height="350">
+  <img [@picAnimation]="this.picExpand" id="picME" src="..\assets\images\sanFran.jpg" class="img-responsive img-circle margin"
+    style="display:inline" alt="Picture of Me" width="350" height="350">
 </div>
 
 
 <!-- Second Container -->
-<div class="container-fluid bg-2 text-center">
+<div [@secContAnimation]="this.secondContainerEnter" class="container-fluid bg-2 text-center secondContainer large" id="secondContainer"
+  style="opacity:0">
+  <h3 class="margin">Who Am I?</h3>
+  <p>Hello visitor! My name is Sammy Al Hashemi. I love tennis and tech! I'm currently enrolled in Engineering Science at the
+    University of Toronto and I'm due to graduate in May of 2019. In the menu above, you can find links to my resume and
+    my contact information. In addition, you can also find projects I've worked on. By clicking the two photos below, you
+    can see some of my favorite tennis and tech photos.
+    <br> As you can tell from this page, I am in love (probably too much) with web animations...
+  </p>
+</div>
+
+<div class="container-fluid bg-2 text-center secondContainer small">
   <h3 class="margin">Who Am I?</h3>
   <p>Hello visitor! My name is Sammy Al Hashemi. I love tennis and tech! I'm currently enrolled in Engineering Science at the
     University of Toronto and I'm due to graduate in May of 2019. In the menu above, you can find links to my resume and
@@ -89,7 +100,7 @@
 </div>
 
 <!-- Third Container (Grid) -->
-<div class="container-fluid bg-6 text-center guideBlock">
+<div [@thirdContAnimation]="this.thirdContainerEnter" id="thirdContainer" class="container-fluid bg-6 text-center guideBlock">
   <h3 class="margin">Guides</h3>
   <br>
   <div class="row">
@@ -149,6 +160,7 @@
       </div>
     </div>
     <div class="col-md-4 col-sm-4 col-lg-8 blockExplanation">
+      <img src="../../assets/images/favicon-5.ico" alt="logo">
       <blockquote>
         I am going into my fourth year of Engineering Science at UofT. My thesis project is to write scalable versions of Shore's
         and Grovers Quantum algorithms. Because teaching is the best way to learn, I've decided to write guides/blogs on
@@ -193,5 +205,7 @@
     <i class="fa fa-github w3-hover-opacity "></i>
   </a>
   <hr>
-  <button type="button" class="btn btn-primary" [ngx-scroll-to]="'#top'" [ngx-scroll-to-duration]="1500">Back to Top</button>
+  <button type="button" class="btn btn-primary logobutton" [ngx-scroll-to]="'#top'" [ngx-scroll-to-duration]="1500">
+    Back to Top
+  </button>
 </footer>

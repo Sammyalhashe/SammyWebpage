@@ -20,11 +20,16 @@ import { ActivatedRoute } from '@angular/router';
 export class SammyComponent implements OnInit, OnDestroy {
   // class properties
   elems: HTMLCollectionOf<Element>;
+  secondContainer: Element;
+  thirdContainer: Element;
   windowHeight: number;
   navigationBar: HTMLElement;
+  picExpand: boolean;
   Jitems: IListItem[];
   JhoverState: string;
   hoverState: string;
+  secondContainerEnter: boolean;
+  thirdContainerEnter: boolean;
   items: IListItem[];
   errorMessage: string;
   JerrorMessage: string;
@@ -35,6 +40,8 @@ export class SammyComponent implements OnInit, OnDestroy {
     // initialize class props
     this.hoverState = 'nonHovered';
     this.JhoverState = 'JnonHovered';
+    this.secondContainerEnter = false;
+    this.thirdContainerEnter = false;
     this.init = this.init.bind(this);
     this._addEventHandlers = this._addEventHandlers.bind(this);
     this._removeEventHandlers = this._removeEventHandlers.bind(this);
@@ -58,6 +65,35 @@ export class SammyComponent implements OnInit, OnDestroy {
   }
 
   checkPosition(): void {
+    if (window.innerWidth >= 757 && window.innerWidth <= 1699) {
+      if (
+        document.getElementById('picME').getBoundingClientRect().top === 208
+      ) {
+        this.picExpand = true;
+      } else {
+        this.picExpand = false;
+      }
+    }
+
+    // I only do this for larger screen in case of app
+    if (window.innerWidth >= 757 && window.innerWidth <= 1699) {
+      // for sliding in main container divs
+      if (
+        this.secondContainer.getBoundingClientRect().top - this.windowHeight <=
+        0
+      ) {
+        this.secondContainerEnter = true;
+      }
+
+      if (
+        this.thirdContainer.getBoundingClientRect().top - this.windowHeight <=
+        0
+      ) {
+        this.thirdContainerEnter = true;
+      }
+    }
+
+    // for expanding container
     for (let i = 0; i < this.elems.length; i++) {
       const positionFromTop = this.elems[i].getBoundingClientRect().top;
       if (positionFromTop - this.windowHeight <= 0) {
@@ -173,6 +209,9 @@ export class SammyComponent implements OnInit, OnDestroy {
     //     links => (this.Jitems = links),
     //     err => (this.errorMessage = err as any)
     //   );
+    this.secondContainer = document.getElementById('secondContainer');
+    this.thirdContainer = document.getElementById('thirdContainer');
+    this.picExpand = true;
     this.init();
   }
 

@@ -19,7 +19,12 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
     BrowserAnimationsModule,
     CommonModule,
     ScrollToModule.forRoot(),
-    RouterModule.forChild([{ path: 'guides/:id', component: BlogComponent }]),
+    RouterModule.forChild([
+      // {
+      //   path: 'guides/:id',
+      //   loadChildren: '../blog-module/blog-module.module#BlogModule'
+      // }
+    ]),
     FormsModule,
     SharedModule,
     HttpClientModule
