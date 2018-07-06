@@ -72,7 +72,8 @@ const animationsList = [
               // query("@loadanimation", [animateChild()], { optional: true }),
               // query("@loadanimation1", [animateChild()], { optional: true }),
               // query("@loadanimation2", [animateChild()], { optional: true })
-            ])
+            ]),
+            { optional: true }
           ),
           query(
             ':leave',
@@ -180,7 +181,8 @@ const animationsList = [
               // query("@loadanimation", [animateChild()], { optional: true }),
               // query("@loadanimation1", [animateChild()], { optional: true }),
               // query("@loadanimation2", [animateChild()], { optional: true })
-            ])
+            ]),
+            { optional: true }
           ),
           query(
             ':leave',
@@ -217,7 +219,8 @@ const animationsList = [
               // query("@loadanimation", [animateChild()], { optional: true }),
               // query("@loadanimation1", [animateChild()], { optional: true }),
               // query("@loadanimation2", [animateChild()], { optional: true })
-            ])
+            ]),
+            { optional: true }
           ),
           query(
             ':leave',
@@ -255,7 +258,8 @@ const animationsList = [
               // query("@loadanimation", [animateChild()], { optional: true }),
               // query("@loadanimation1", [animateChild()], { optional: true }),
               // query("@loadanimation2", [animateChild()], { optional: true })
-            ])
+            ]),
+            { optional: true }
           ),
           query(
             ':leave',

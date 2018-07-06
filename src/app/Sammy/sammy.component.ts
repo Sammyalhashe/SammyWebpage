@@ -72,7 +72,6 @@ export class SammyComponent implements OnInit, OnDestroy {
         this.picExpand = false;
       }
     }
-    console.log(this.picExpand);
 
     // I only do this for larger screen in case of app
     if (window.innerWidth >= 757) {

@@ -47,3 +47,28 @@ p.info-zone {
 #PDFDownload:hover {
   box-shadow: 0 0 0 2px #fff inset, 0 0 0 4px #222 inset;
 }
+
+a {
+  -webkit-tap-highlight-color: transparent;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1vh 1vw;
+  color: white;
+  background: teal;
+  margin: 2px;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  border-radius: 3px;
+  text-decoration: none;
+  /* -webkit-transition: all 200ms cubic-bezier(0.39, 0.5, 0.15, 1.36);
+  -moz-transition: all 200ms cubic-bezier(0.39, 0.5, 0.15, 1.36);
+  -ms-transition: all 200ms cubic-bezier(0.39, 0.5, 0.15, 1.36);
+  -o-transition: all 200ms cubic-bezier(0.39, 0.5, 0.15, 1.36);
+  transition: all 200ms cubic-bezier(0.39, 0.5, 0.15, 1.36); */
+}
+
+a#button1:hover {
+  box-shadow: 0 0 0 2px, 0 0 0 4px #222;
+  color: white;
+}
