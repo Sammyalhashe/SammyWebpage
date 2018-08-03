@@ -1,13 +1,10 @@
-import { IpicsItem } from './../../shared/IpicsItem';
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { IListItem } from '../../shared/listItems';
 import { OnInit, OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { TimerService } from './timer.service';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/map';
-import { PageService } from '../../shared/sharedPageService.service';
 
 import { animationsList } from './sammy.component.animations';
 import { ActivatedRoute } from '@angular/router';
@@ -66,11 +63,7 @@ export class SammyComponent implements OnInit, OnDestroy {
 
   checkPosition(): void {
     if (window.innerWidth >= 757) {
-      if (document.getElementById('picME').getBoundingClientRect().top >= 208) {
-        this.picExpand = true;
-      } else {
-        this.picExpand = false;
-      }
+      this.picExpand = document.getElementById('picME').getBoundingClientRect().top >= 208;
     }
 
     // I only do this for larger screen in case of app
