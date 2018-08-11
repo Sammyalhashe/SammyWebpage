@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./finder-thingy.component.css']
 })
 export class FinderThingyComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {

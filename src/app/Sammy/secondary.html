@@ -204,4 +204,11 @@
   <button type="button" class="btn btn-primary logobutton" [ngx-scroll-to]="'#top'" [ngx-scroll-to-duration]="1500">
     Back to Top
   </button>
+  <br>
+  <br>
+  <ul>
+      <li *ngFor="let item of newItems | async">
+          {{item.field1}}
+      </li>
+  </ul>
 </footer>

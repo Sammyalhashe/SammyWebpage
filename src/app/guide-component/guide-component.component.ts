@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TimerService } from '../Sammy/timer.service';
 import { IListItem } from '../../shared/listItems';
 import { Subscription } from 'rxjs/Subscription';
+import { tap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -35,7 +36,9 @@ export class GuideComponentComponent implements OnInit, OnDestroy {
     //   );
 
     // using route resolver
-    this.route.data.do(console.log).subscribe(data => {
+      this.route.data.pipe(
+          tap(val => console.log(val))
+      ).subscribe(data => {
       this.pySubscription = data['links'].pythonLinks.subscribe(
         links => (this.items = links),
         err => (this.errorMessage = err as any)

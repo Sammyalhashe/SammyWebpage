@@ -1,36 +1,29 @@
-import { IpicsItem } from './../../shared/IpicsItem';
-import { IListItem } from './../../shared/listItems';
-import { Observable } from 'rxjs';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
+import { IListItem } from '../../shared/listItems';
+import { of, Observable } from 'rxjs';
+
+import { catchError, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+
+import { AngularFirestore } from 'angularfire2/firestore';
+
 @Injectable()
 export class TimerService {
-  private pyURL = './api/json/pythonLinks.json';
-  private qcURL = './api/json/qcLinks.json';
-  private tpURL = './api/json/tennisPicsLinks.json';
+    ref: Observable<any[]>;
 
-  constructor(private _http: HttpClient) {}
+    constructor(private _http: HttpClient, private db: AngularFirestore) {
+        this.ref = this.db.collection('sampleData').valueChanges();
+        this.ref.pipe(
+            tap(val => console.log(val)),
+            catchError(err => of(err))
+        );
+    }
 
-  getPythonLinks(): Observable<IListItem[]> {
-    return this._http
-      .get<IListItem[]>(this.pyURL)
-      .catch((err: HttpErrorResponse) => {
-        console.log(err.message);
-        return Observable.throw(err.message);
-      });
-    // .do(data => console.log('All Data : ' + JSON.stringify(data)))
-  }
+    getPythonLinks(): Observable<IListItem[]> {
+        return this.db.collection('pythonPosts').valueChanges() as Observable<IListItem[]>;
+    }
 
-  getQcLinks(): Observable<IListItem[]> {
-    return this._http
-      .get<IListItem[]>(this.qcURL)
-      .catch((err: HttpErrorResponse) => {
-        console.log(err.message);
-        return Observable.throw(err.message);
-      });
-    // .do(data => console.log('All Data : ' + JSON.stringify(data)))
-  }
+    getQcLinks(): Observable<IListItem[]> {
+        return this.db.collection('qmPosts').valueChanges() as Observable<IListItem[]>;
+    }
 }

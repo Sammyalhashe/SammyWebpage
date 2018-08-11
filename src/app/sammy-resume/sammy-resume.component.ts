@@ -10,6 +10,9 @@ import {
   group
 } from '@angular/animations';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
+
+import { Observable } from 'rxjs/Observable';
+import { AngularFireStorage } from 'angularfire2/storage';
 import { PageService } from '../../shared/sharedPageService.service';
 
 @Component({
@@ -68,7 +71,11 @@ import { PageService } from '../../shared/sharedPageService.service';
 export class ResumeComponent implements OnInit {
   toggleState: boolean;
   navigationBar: HTMLElement;
-  constructor() {
+  profileURL: Observable<string | null>;
+  constructor(private storage: AngularFireStorage) {
+    const ref = this.storage.ref('Photos/SanFranBeach.jpg');
+    this.profileURL = ref.getDownloadURL();
+    console.log(this.profileURL);
     let timeoutId = setTimeout(() => {
       console.log('hello');
     }, 2000);
@@ -77,7 +84,6 @@ export class ResumeComponent implements OnInit {
   }
 
   toggler() {
-    console.log('CLICKED');
     this.toggleState = this.toggleState ? false : true;
   }
 

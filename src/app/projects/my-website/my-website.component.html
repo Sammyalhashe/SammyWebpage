@@ -24,7 +24,8 @@
     </div>
 
     <div>
-      <img class="projectImage" src="/assets/images/website.JPG" alt="Picture">
+      <!--<img class="projectImage" src="/assets/images/website.JPG" alt="Picture">-->
+      <img class="projectImage" [src]="this.url | async" alt="Picture">
     </div>
   </div>
   <br>
