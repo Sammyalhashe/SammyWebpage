@@ -10,6 +10,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // application Components and Modules
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { GuideModuleModule } from './guide-module/guide-module.module';
 import { GuideComponentComponent } from './guide-component/guide-component.component';
 import { LinksResolver } from './Sammy/linksResolver.service';
+import { FirebaseResolver } from './sammy-resume/fbRetrieveResolver.service';
 
 // External Modules
 import { AngularMaterialModule } from './angularMaterialconfig';
@@ -51,6 +53,9 @@ import { TimerService } from './Sammy/timer.service';
                 component: ResumeComponent,
                 data: {
                     animation: 'resumePage'
+                },
+                resolve: {
+                    firebase: FirebaseResolver
                 }
             },
             // {
@@ -90,6 +95,7 @@ import { TimerService } from './Sammy/timer.service';
         AngularFirestoreModule, // imports firebase/firestore, only needed for database features
         AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
         AngularFireStorageModule, // imports firebase/storage only needed for storage features
+        FontAwesomeModule,
         SammyModule,
         SammyResumeModule,
         BlogModule,
@@ -97,7 +103,10 @@ import { TimerService } from './Sammy/timer.service';
         ProjectsModule,
         GuideModuleModule
     ],
-    providers: [LinksResolver],
+    providers: [
+        LinksResolver,
+        FirebaseResolver
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

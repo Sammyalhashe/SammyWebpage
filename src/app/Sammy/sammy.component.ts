@@ -37,6 +37,7 @@ export class SammyComponent implements OnInit, OnDestroy {
     pySubscription: Subscription;
     qcSubscription: Subscription;
     newItems: Observable<any[]>;
+    obserbableWatcher: number;
 
     constructor(
       private _timer: TimerService,
@@ -166,26 +167,15 @@ export class SammyComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.obserbableWatcher = 0;
         this.newItems = this.db.collection('sampleData').valueChanges();
+        this.newItems.subscribe( data => {
+            this.obserbableWatcher++;
+        } );
         this.navigationBar = document.getElementById(
             'navigation-bar'
         ) as HTMLElement;
         this.navigationBar.style.display = 'block';
-
-        // subscribing to the service timer.service
-        // this.pySubscription = this._timer
-        //   .getPythonLinks()
-        //   .subscribe(
-        //     links => (this.items = links),
-        //     err => (this.errorMessage = err as any)
-        //   );
-
-        // this.qcSubscription = this._timer
-        //   .getQcLinks()
-        //   .subscribe(
-        //     links => (this.Jitems = links),
-        //     err => (this.JerrorMessage = err as any)
-        //   );
 
         // using route resolver
         this.route.data.pipe(
@@ -200,18 +190,6 @@ export class SammyComponent implements OnInit, OnDestroy {
                 err => (this.JerrorMessage = err as any)
             );
         });
-        // this.pySubscription = this.actr.data
-        //   .map(data => data.links.json().pythonLinks)
-        //   .subscribe(
-        //     links => (this.items = links),
-        //     err => (this.errorMessage = err as any)
-        //   );
-        // this.qcSubscription = this.actr.data
-        //   .map(data => data.links.json().qcLinks)
-        //   .subscribe(
-        //     links => (this.Jitems = links),
-        //     err => (this.errorMessage = err as any)
-        //   );
         this.secondContainer = document.getElementById('secondContainer');
         this.thirdContainer = document.getElementById('thirdContainer');
         this.picExpand = true;

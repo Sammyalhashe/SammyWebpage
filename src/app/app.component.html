@@ -60,6 +60,11 @@
 </div>
 
 
+
 <div class="routeHolder" [@routeAnimation]='prepRouteState(routerOutlet)'>
   <router-outlet #routerOutlet="outlet"></router-outlet>
+</div>
+
+<div id="loader" class="myloader" *ngIf="this.loading">
+    <div id="loaderWords"><fa-icon [icon]="faSpinner"></fa-icon></div>
 </div>

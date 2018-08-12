@@ -206,7 +206,7 @@
   </button>
   <br>
   <br>
-  <ul>
+  <ul [@dbAnim]="this.obserbableWatcher">
       <li *ngFor="let item of newItems | async">
           {{item.field1}}
       </li>

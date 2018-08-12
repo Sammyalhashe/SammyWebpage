@@ -12,8 +12,10 @@ import {
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 import { Observable } from 'rxjs/Observable';
+import { tap } from 'rxjs/operators';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { PageService } from '../../shared/sharedPageService.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   templateUrl: './sammy-resume.component.html',
@@ -72,14 +74,17 @@ export class ResumeComponent implements OnInit {
   toggleState: boolean;
   navigationBar: HTMLElement;
   profileURL: Observable<string | null>;
-  constructor(private storage: AngularFireStorage) {
-    const ref = this.storage.ref('Photos/SanFranBeach.jpg');
-    this.profileURL = ref.getDownloadURL();
-    console.log(this.profileURL);
-    let timeoutId = setTimeout(() => {
-      console.log('hello');
-    }, 2000);
-    console.log(window.location.href);
+  constructor(
+    private storage: AngularFireStorage,
+    private route: ActivatedRoute
+  ) {
+    /*
+         *const ref = this.storage.ref('Photos/SanFranBeach.jpg');
+         *this.profileURL = ref.getDownloadURL();
+         */
+    this.route.data.subscribe(data => {
+      this.profileURL = data['firebase'];
+    });
     this.toggleState = true;
   }
 
