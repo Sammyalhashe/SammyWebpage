@@ -38,6 +38,9 @@ export class SammyComponent implements OnInit, OnDestroy {
     qcSubscription: Subscription;
     newItems: Observable<any[]>;
     obserbableWatcher: number;
+    profileUrl: Observable<string | null>;
+    pythonPicUrl: Observable<string | null>;
+    quantumUrl: Observable<string | null>;
 
     constructor(
       private _timer: TimerService,
@@ -189,6 +192,15 @@ export class SammyComponent implements OnInit, OnDestroy {
                 links => (this.Jitems = links),
                 err => (this.JerrorMessage = err as any)
             );
+            data['pics'][0].subscribe(url => {
+                this.profileUrl = url;
+            });
+            data['pics'][1].subscribe(url => {
+                this.pythonPicUrl = url;
+            });
+            data['pics'][2].subscribe(url => {
+                this.quantumUrl = url;
+            });
         });
         this.secondContainer = document.getElementById('secondContainer');
         this.thirdContainer = document.getElementById('thirdContainer');

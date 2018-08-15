@@ -27,7 +27,7 @@ import { ActivatedRoute } from '@angular/router';
         query(
           '.score',
           stagger('500ms', [
-            animate('800ms 0.3s ease-out', style({ width: 70 + '%' }))
+            animate('800ms 0.3s ease-out', style({ width: 80 + '%' }))
           ])
         )
       ])
@@ -39,6 +39,28 @@ import { ActivatedRoute } from '@angular/router';
           '.score',
           stagger('500ms', [
             animate('800ms 0.3s ease-out', style({ width: 60 + '%' }))
+          ])
+        )
+      ])
+    ]),
+    trigger('loadanimation4', [
+      transition('* => *', [
+        query('.score', style({ width: 0 })),
+        query(
+          '.score',
+          stagger('500ms', [
+            animate('800ms 0.3s ease-out', style({ width: 75 + '%' }))
+          ])
+        )
+      ])
+    ]),
+    trigger('loadanimation5', [
+      transition('* => *', [
+        query('.score', style({ width: 0 })),
+        query(
+          '.score',
+          stagger('500ms', [
+            animate('800ms 0.3s ease-out', style({ width: 30 + '%' }))
           ])
         )
       ])

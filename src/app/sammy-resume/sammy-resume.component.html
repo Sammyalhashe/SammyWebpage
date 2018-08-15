@@ -39,21 +39,21 @@
           <a id="button1" (click)="this.toggler()">ANIMATE</a>
           <p>Python</p>
           <div class="w3-light-grey w3-round-xlarge w3-small" [@loadanimation]="this.toggleState">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal score" style="width:70%;">70%</div>
+            <div class="w3-container w3-center w3-round-xlarge w3-teal score" style="width:80%;">80%</div>
           </div>
-          <p>Java</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small" [@loadanimation1]="this.toggleState">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal score" style="width:60%">
-              <div class="w3-center w3-text-white">60%</div>
-            </div>
-          </div>
-          <p>Swift3</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small" [@loadanimation1]="this.toggleState">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal score" style="width:60%">60%</div>
+          <p>Angular</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small" [@loadanimation4]="this.toggleState">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal score" style="width:75%">75%</div>
           </div>
           <p>HTML-CSS-Javascript</p>
           <div class="w3-light-grey w3-round-xlarge w3-small" [@loadanimation2]="this.toggleState">
             <div class="w3-container w3-center w3-round-xlarge w3-teal score" style="width:40%">40%</div>
+          </div>
+          <p>Java</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small" [@loadanimation5]="this.toggleState">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal score" style="width:30%">
+              <div class="w3-center w3-text-white">30%</div>
+            </div>
           </div>
           <!-- A Line Break -->
           <br>
@@ -92,14 +92,16 @@
             <b>Device Characterization and Product Engineering Intern</b>,
             <i>Microsemi Corp</i>.</h5>
           <h6 class="w3-text-teal">
-            <i class="fa fa-calendar fa-fw w3-margin-right"></i>July 2017 -
-            <span class="w3-tag w3-teal w3-round">Present</span>
+            <i class="fa fa-calendar fa-fw w3-margin-right"></i>July 2017 - August 2018
           </h6>
-          <p>I am currently working on a collaborative team to develop test structures and designs to test and characterize
-            Microsemi FPGA products, specifically their G5 product. I have three main components (projects) within the FPGA
-            for which I am developing the test structures and designs. I take part in weekly meetings where I give my updates
-            and also collaborate with a subset of my team in India. I perform design creation, design simulation, and design
-            testing at offsite vendors to fully characterize the component I am working on.</p>
+          <ul class="projectList">
+            <li>Worked on a collaborative team to develop test structures and designs to test and characterize Microsemi
+              FPGA products, specifically their G5 product that was shipped out to market.</li>
+            <li>Using the developed test structures, I characterized three main components within the FPGA.</li>
+            <li>I took part in weekly meetings to update and collaborate with a subset of my team in India.</li>
+            <li>Performed design creation, design simulation, and design testing at offsite vendors to fully characterize
+              the component(s) worked on.</li>
+          </ul>
           <hr>
         </div>
         <div class="w3-container">
@@ -110,12 +112,19 @@
           </h5>
           <h6 class="w3-text-teal">
             <i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2015 - Sept 2016</h6>
-          <p>In 2015, I assisted a graduate student in his research in a photovoltaics lab by helping him with the machinery
-            and also coding numerical solvers for him. I conveyed recommendations to him by means of a detailed report on
-            numerical methods recommended, and also with methods already tried and implemented. In 2016, I worked with modelling
-            language LAMMPS to simulate different the behavior of different gaseous substances being introduced to a carbon
-            substrate in order to develop the any understanding if the graphene production process can be synthesized at
-            lower temperatures using AiMS instead of the normal, energy intensive, CVD process.</p>
+          <b>2015</b>
+          <ul class="projectList">
+            <li>Assisted a graduate student in his research in a photovoltaics lab</li>
+            <li>Coded numerical eigensolvers to convey expected behaviour</li>
+            <li>Provided a detailed report on numerical methods recommended, as well as methods tried and implemented</li>
+          </ul>
+          <b>2016</b>
+          <ul class="projectList">
+            <li>Worked with modelling lamnguage LAMMPSto simulate different behaviour of different gaseous substances being
+              introduced to a carbon substrate</li>
+            <li>This project furthered the understanding of the graphene production process, specifically if it can be synthesized
+              at lower temperatures using AiMS instead of the normal, energy intensive CVD process.</li>
+          </ul>
           <hr>
         </div>
         <div class="w3-container">
@@ -177,7 +186,9 @@
             <ul class="w3-ul">
               <li>
                 <i class="material-icons" style="color:black; size: 16px">navigate_next</i>&emsp;
-                <a id="button1" href="https://www.coursera.org/learn/machine-learning/" title="ML">Machine Learning, Andrew Ng</a>
+                <a id="button1" href="https://www.coursera.org/learn/machine-learning/" title="ML">Machine Learning, Andrew
+                  Ng
+                </a>
               </li>
             </ul>
             <hr>

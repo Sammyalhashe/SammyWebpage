@@ -13,6 +13,17 @@ p.info-zone {
   -webkit-animation: App-logo-spin infinite 3s linear;
 }
 
+ul.projectList {
+  list-style-type: disc;
+  position: relative;
+  left: 2%;
+}
+
+ul.projectList > li {
+  display: list-item;
+  list-style-type: disc;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -74,6 +74,11 @@
 
   <img [@picAnimation]="this.picExpand" id="picME" src="/assets/images/sanFran.jpg" class="img-responsive img-circle margin"
     style="display:inline" alt="Picture of Me" width="350" height="350">
+
+    <!--
+       -<img [@picAnimation]="this.picExpand" id="picME" [src]="this.profileUrl" class="img-responsive img-circle margin"
+       -style="display:inline" alt="Picture of Me" width="350" height="350">
+       -->
 </div>
 
 
@@ -105,6 +110,8 @@
         <!--div (mouseenter)="togglePython() " (mouseleave)="togglePython() " class="component-card "-->
         <div class="w3-card avatar ">
           <img src="/assets/images/python_background.png " class="backgroundIMG1 ">
+
+<!--<img [src]="this.pythonPicUrl" class="backgroundIMG1 ">-->
         </div>
         <div class="w3-container card-explanation " [@hoverOverTransition]="hoverState">
           <div class="blogDescription">
@@ -134,6 +141,8 @@
         <!--div (mouseenter)="toggleJava() " (mouseleave)="toggleJava() " class="component-card"-->
         <div class="w3-card avatar ">
           <img src="/assets/images/noteQ.JPG " class="backgroundIMG2 ">
+
+<!--<img [src]="this.quantumUrl" class="backgroundIMG2 ">-->
         </div>
         <div class="w3-container card-explanation " [@JhoverOverTransition]="JhoverState">
           <div class="blogDescription">

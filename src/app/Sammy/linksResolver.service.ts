@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 
 // RxJS Imports
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 // Application Imports
 import { IresolveReturn } from '../../shared/IresolveReturn';

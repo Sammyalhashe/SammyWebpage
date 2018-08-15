@@ -25,6 +25,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { GuideModuleModule } from './guide-module/guide-module.module';
 import { GuideComponentComponent } from './guide-component/guide-component.component';
 import { LinksResolver } from './Sammy/linksResolver.service';
+import { FirebaseResolverHome } from './Sammy/fbRetrieveResolverHome.service';
 import { FirebaseResolver } from './sammy-resume/fbRetrieveResolver.service';
 
 // External Modules
@@ -45,7 +46,8 @@ import { TimerService } from './Sammy/timer.service';
                     animation: 'homePage'
                 },
                 resolve: {
-                    links: LinksResolver
+                    links: LinksResolver,
+                    pics: FirebaseResolverHome
                 }
             },
             {
@@ -105,7 +107,8 @@ import { TimerService } from './Sammy/timer.service';
     ],
     providers: [
         LinksResolver,
-        FirebaseResolver
+        FirebaseResolver,
+        FirebaseResolverHome
     ],
     bootstrap: [AppComponent]
 })
