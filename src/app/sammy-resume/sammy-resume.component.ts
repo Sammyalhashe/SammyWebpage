@@ -95,7 +95,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ResumeComponent implements OnInit {
   toggleState: boolean;
   navigationBar: HTMLElement;
-  profileURL: Observable<string | null>;
+  profileURL: string | null;
+  resumeURL: string | null;
   constructor(
     private storage: AngularFireStorage,
     private route: ActivatedRoute
@@ -105,7 +106,15 @@ export class ResumeComponent implements OnInit {
          *this.profileURL = ref.getDownloadURL();
          */
     this.route.data.subscribe(data => {
-      this.profileURL = data['firebase'];
+      this.profileURL = data.firebasepic;
+      this.resumeURL = data.firebaseresume;
+      // data['firebasepic'].subscribe(pic => {
+      //   this.profileURL = pic;
+      // });
+      // data['firebaseresume'].subscribe(res => {
+      //   this.resumeURL = res;
+      // });
+      // console.log(this.profileURL);
     });
     this.toggleState = true;
   }

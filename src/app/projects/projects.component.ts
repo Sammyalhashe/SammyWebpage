@@ -18,7 +18,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
     viewExpand:  boolean;
 
     ngOnInit(): void {
-        this.projectRoutes = ['/finderThingy', '/myWebsite'];
+        this.projectRoutes = ['/finderThingy', '/myWebsite', '/pey'];
         this.currentProj = '/pipeScanner';
         this.viewExpand = false;
         this.routerSubscription = this.router.events.subscribe(evt => {

@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PipeScannerComponent } from './pipe-scanner/pipe-scanner.component';
 import { FinderThingyComponent } from './finder-thingy/finder-thingy.component';
 import { MyWebsiteComponent } from './my-website/my-website.component';
+import { PeyComponent } from './pey/pey.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,13 @@ const routes: Routes = [
       animation: 'projectPage'
     },
     children: [
+        {
+            path: 'pey',
+            component: PeyComponent,
+            data: {
+                animation: 'pey'
+            }
+        },
       {
         path: 'pipeScanner',
           component: PipeScannerComponent,
@@ -51,7 +59,8 @@ const routes: Routes = [
         ProjectsComponent,
         PipeScannerComponent,
         FinderThingyComponent,
-        MyWebsiteComponent
+        MyWebsiteComponent,
+        PeyComponent
     ]
 })
 export class ProjectsModule {}
